@@ -4,15 +4,23 @@ Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
 ## [Unreleased]
 
-## [Phase 5 - WIP] - 2026-10-04
+## [Phase 6] - 2026-10-04
+### Added
+- Mode latihan baru: **Audio Quiz** (auto play suara audio & tebak arti/kata)
+- Kuis Spesifik Kategori (Specialized Practice): Vocabulary Quiz, Hiragana Quiz, Katakana Quiz, Kanji Quiz, Particle Quiz, Grammar Quiz
+- Practice Hub UI diperbarui dengan section Kuis Spesifik
+- API attempt recording & DB persistence terhubung di semua jenis kuis
+
+## [Phase 5] - 2026-10-04
 ### Added
 - Practice Engine (Flashcard, Multiple Choice, Type Answer)
 - Model PracticeAttempt di database
-- Route dinamis /practice/[mode]
+- API endpoint `POST /api/practice/attempt`
+- Route dinamis `/practice/[mode]` untuk 6 tipe materi
 
 ### Fixed
-- Hydration mismatch pada PracticeEngine (Math.random di useMemo)
-- Data duplikat di seed script (tambah deleteMany)
+- Hydration mismatch pada PracticeEngine
+- Halaman `/account` di-refaktor dari dummy text menjadi profil user nyata + Logout
 
 ## [Phase 4] - 2026-10-04
 ### Added
