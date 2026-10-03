@@ -1,0 +1,178 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  hashedPassword String?  // Ditambahkan untuk credentials login
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  accounts         Account[]
+  sessions         Session[]
+  practiceAttempts PracticeAttempt[]
+}
+
+model PracticeAttempt {
+  id           String   @id @default(cuid())
+  userId       String
+  materialType String   // 'hiragana', 'vocabulary', 'particle'
+  materialId   String
+  isCorrect    Boolean
+  createdAt    DateTime @default(now())
+  
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ==========================================
+// Content & Learning Models (Phase 2)
+// ==========================================
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  courseId     String
+  title       String
+  description String?
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  hiragana    Hiragana[]
+  katakana    Katakana[]
+  kanji       Kanji[]
+  vocabulary  Vocabulary[]
+  particles   Particle[]
+  grammar     Grammar[]
+}
+
+model Hiragana {
+  id        String  @id @default(cuid())
+  character String
+  romaji    String
+  audioUrl  String?
+  example   String?
+  lessonId  String
+  
+  lesson    Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model Katakana {
+  id        String  @id @default(cuid())
+  character String
+  romaji    String
+  audioUrl  String?
+  example   String?
+  lessonId  String
+  
+  lesson    Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model Kanji {
+  id          String  @id @default(cuid())
+  character   String
+  hiragana    String?
+  romaji      String?
+  meaning     String?
+  onyomi      String?
+  kunyomi     String?
+  jlptLevel   String?
+  lessonId    String
+  
+  lesson      Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model Vocabulary {
+  id        String  @id @default(cuid())
+  word      String
+  kanji     String?
+  kana      String?
+  romaji    String?
+  meaning   String?
+  wordType  String?
+  lessonId  String
+  
+  lesson    Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model Particle {
+  id             String  @id @default(cuid())
+  particle       String
+  reading        String?
+  meaning        String?
+  function       String?
+  pattern        String?
+  example        String?
+  translation    String?
+  commonMistake  String?
+  lessonId       String
+  
+  lesson         Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model Grammar {
+  id          String  @id @default(cuid())
+  pattern     String
+  meaning     String?
+  usage       String?
+  example     String?
+  translation String?
+  note        String?
+  lessonId    String
+  
+  lesson      Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}

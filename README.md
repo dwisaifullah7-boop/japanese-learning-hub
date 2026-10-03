@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎌 Japanese Learning Hub
 
-## Getting Started
+Website pembelajaran bahasa Jepang terstruktur dari pemula hingga mahir.
 
-First, run the development server:
+## 🎯 Alur Belajar
+Belajar → Latihan → Review → Mastery → Exam → Evaluasi → Progress
+
+## 🚀 Quick Start
 
 ```bash
+# Clone repository
+git clone <repo-url>
+cd japanese-learning-hub
+
+# Install dependencies
+npm install
+
+# Setup database
+npx prisma db push
+npm run db:seed
+
+# Jalankan dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Tech Stack
+- **Frontend:** Next.js 15 (App Router) + TypeScript
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Database:** Prisma ORM + SQLite (dev) / PostgreSQL (prod)
+- **Auth:** NextAuth.js (Auth.js v5) + bcryptjs
+- **Audio:** Web Speech API (TTS ja-JP)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🗺️ Roadmap
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Phase | Status | Deskripsi |
+|-------|--------|-----------|
+| 0 | ✅ Selesai | Project Foundation |
+| 1 | ✅ Selesai | Account (Register/Login/Logout) |
+| 2 | ✅ Selesai | Content & Database (Bab 1) |
+| 3 | ✅ Selesai | Learn (Detail materi) |
+| 4 | ✅ Selesai | Audio & Stroke Order |
+| 5 | 🔄 WIP | Practice Core (Flashcard, MC, Type) |
+| 6 | ⏳ Belum | Specialized Practice |
+| 7 | ⏳ Belum | Mastery & Weak Material |
+| 8 | ⏳ Belum | Review System |
+| 9 | ⏳ Belum | Exam |
+| 10 | ⏳ Belum | Search |
+| 11 | ⏳ Belum | Progress & Dashboard |
+| 12 | ⏳ Belum | Gamification (XP, Level, Streak) |
+| 13 | ⏳ Belum | Visual Polish |
+| 14 | ⏳ Belum | Settings & Accessibility |
+| 15-18 | ⏳ Belum | Testing, Bug Fix, Optimization, Final |
 
-## Learn More
+## 📖 Dokumentasi
+- [Changelog](docs/CHANGELOG.md)
 
-To learn more about Next.js, take a look at the following resources:
+## 🏗️ Struktur Project
+```text
+japanese-learning-hub/
+├── prisma/
+│   ├── schema.prisma      # Database schema
+│   └── seed.ts            # Seed data (Bab 1)
+├── src/
+│   ├── app/
+│   │   ├── (auth)/        # Login, Register
+│   │   ├── (main)/        # Home, Learn, Practice, dll
+│   │   └── api/           # API routes (NextAuth, Register)
+│   ├── components/
+│   │   ├── ui/            # shadcn/ui
+│   │   ├── layout/        # Navbar, Footer
+│   │   ├── shared/        # PageHeader, MaterialCard, dll
+│   │   ├── learn/         # HiraganaCard, VocabularyCard, dll
+│   │   ├── practice/      # PracticeEngine
+│   │   └── providers/     # AuthProvider, AudioProvider, ToastProvider
+│   ├── lib/               # prisma.ts, utils.ts, errors.ts, auth.ts
+│   └── middleware.ts      # Protected routes
+├── docs/
+│   └── CHANGELOG.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+© 2026 Japanese Learning Hub. All rights reserved.
