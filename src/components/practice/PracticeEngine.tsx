@@ -14,6 +14,7 @@ interface Question {
   back: string  
   romaji?: string
   audioText?: string
+  materialType?: string
 }
 
 interface PracticeEngineProps {
@@ -55,11 +56,12 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
   // Simpan hasil attempt ke database via API
   const saveAttemptToDb = async (materialId: string, correct: boolean) => {
     try {
+      const targetType = currentQuestion?.materialType || materialType
       await fetch('/api/practice/attempt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          materialType,
+          materialType: targetType,
           materialId,
           isCorrect: correct,
         }),

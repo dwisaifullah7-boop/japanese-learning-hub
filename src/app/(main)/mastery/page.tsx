@@ -112,8 +112,8 @@ export default async function MasteryPage() {
             <AlertCircle className="w-5 h-5 text-red-500" />
             <h3 className="font-semibold text-gray-900">Materi Perlu Diperkuat</h3>
           </div>
-          <Link href="/review" className="text-sm text-blue-600 hover:underline flex items-center gap-1">
-            Lihat Semua <ArrowRight className="w-4 h-4" />
+          <Link href="/practice/review" className="text-sm text-blue-600 hover:underline flex items-center gap-1">
+            Lihat Semua (Review Hub) <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 

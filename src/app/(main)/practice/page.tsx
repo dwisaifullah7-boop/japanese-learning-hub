@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { MaterialCard } from '@/components/shared/MaterialCard'
-import { Layers, HelpCircle, Keyboard, Volume2, BookMarked, Languages, FileText, Sparkles, GraduationCap } from 'lucide-react'
+import { Layers, HelpCircle, Keyboard, Volume2, BookMarked, Languages, FileText, Sparkles, GraduationCap, RotateCcw } from 'lucide-react'
 
 export default function PracticePage() {
   const modes = [
@@ -28,6 +28,12 @@ export default function PracticePage() {
       description: 'Dengarkan pelafalan audio lalu pilih artinya. Menguji pendengaran.',
       icon: <Volume2 className="w-6 h-6" />,
       href: '/practice/audio-quiz?type=vocabulary',
+    },
+    {
+      title: 'Review Session',
+      description: 'Ulangi Weak Material dan materi yang belum dikuasai secara otomatis.',
+      icon: <RotateCcw className="w-6 h-6" />,
+      href: '/practice/review',
     },
   ]
 

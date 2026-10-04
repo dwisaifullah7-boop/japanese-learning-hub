@@ -2,7 +2,14 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
-## [Unreleased]
+## [Phase 8] - 2026-10-04
+### Added
+- API `GET /api/review/fetch` — Mengumpulkan materi status REVIEW (Weak Material) & LEARNING untuk semua 6 tipe materi (vocabulary, hiragana, katakana, kanji, particle, grammar)
+- Halaman **Review Hub** (`/practice/review`) — Ringkasan stat card materi review & tombol "Mulai Sesi Review"
+- Halaman **Review Session** (`/practice/review-session`) & `ReviewSessionClient` wrapper untuk mengulang materi review secara interaktif dengan `PracticeEngine`
+- Dukungan per-soal `materialType` pada `PracticeEngine` agar tracking mastery tetap akurat pada sesi review campuran
+- Kartu **Review Session** pada halaman `/practice` (Practice Hub)
+- Update navigasi tombol review pada halaman `/mastery` ke `/practice/review`
 
 ## [Phase 7] - 2026-10-04
 ### Added

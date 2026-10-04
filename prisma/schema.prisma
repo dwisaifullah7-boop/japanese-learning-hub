@@ -29,6 +29,7 @@ model Mastery {
   materialType  String   // 'hiragana' | 'katakana' | 'kanji' | 'vocabulary' | 'particle' | 'grammar'
   materialId    String
   correctCount  Int      @default(0)
+  wrongCount    Int      @default(0)
   attemptCount  Int      @default(0)
   // level: 'NEW' | 'LEARNING' | 'REVIEW' | 'MASTERED'
   level         String   @default("NEW")
