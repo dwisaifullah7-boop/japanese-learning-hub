@@ -21,6 +21,7 @@ model User {
   sessions         Session[]
   practiceAttempts PracticeAttempt[]
   masteries        Mastery[]
+  examResults      ExamResult[]
 }
 
 model Mastery {
@@ -194,3 +195,18 @@ model Grammar {
   
   lesson      Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 }
+
+model ExamResult {
+  id              String   @id @default(cuid())
+  userId          String
+  title           String   // e.g. "Ujian Evaluasi Bab 1", "Ujian Partikel & Grammar"
+  score           Int      // Jumlah jawaban benar
+  totalQuestions  Int      // Total soal
+  percentage      Float    // Nilai akhir dalam persen
+  passed          Boolean  // True jika percentage >= 70%
+  durationSeconds Int      // Lama pengerjaan dalam detik
+  createdAt       DateTime @default(now())
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+

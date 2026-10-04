@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [Phase 9] - 2026-10-04
+### Added
+- Model `ExamResult` di database (score, totalQuestions, percentage, passed, durationSeconds, user relation)
+- API `GET /api/exam/questions` — Pembuat soal ujian acak berdasar preset (`comprehensive`, `grammar-particle`, `kanji-vocab`)
+- API `POST /api/exam/submit` — Pengolah nilai ujian, persentase, status lulus (>=70%), simpan `ExamResult`, & auto-update `Mastery`
+- API `GET /api/exam/history` — Mengambil riwayat ujian milik user
+- Komponen `ExamEngine` — Controller ujian interaktif dengan timer countdown MM:SS, palette nomor 1..N, audio support, & dialog konfirmasi submit
+- Komponen `ExamResultView` — Tampilan hasil ujian interaktif dengan badge kelulusan, skor, & pembahasan kunci jawaban tiap nomor
+- Halaman **Exam Hub** (`/exam`) — Pilihan preset ujian, petunjuk pengerjaan, & tabel riwayat hasil ujian lengkap
+- Halaman **Sesi Ujian** (`/exam/session`) — Halaman pengerjaan ujian aktif dengan Suspense fallback
+
 ## [Phase 8] - 2026-10-04
 ### Added
 - API `GET /api/review/fetch` — Mengumpulkan materi status REVIEW (Weak Material) & LEARNING untuk semua 6 tipe materi (vocabulary, hiragana, katakana, kanji, particle, grammar)
