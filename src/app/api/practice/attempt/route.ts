@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { updateMastery } from '@/lib/mastery'
 
 export async function POST(req: Request) {
   try {
@@ -23,6 +24,7 @@ export async function POST(req: Request) {
       )
     }
 
+    // 1. Simpan attempt
     const attempt = await prisma.practiceAttempt.create({
       data: {
         userId: session.user.id,
@@ -31,6 +33,9 @@ export async function POST(req: Request) {
         isCorrect,
       },
     })
+
+    // 2. Update mastery (upsert) secara sinkron
+    await updateMastery(session.user.id, materialType, materialId, isCorrect)
 
     return NextResponse.json(
       { message: 'Practice attempt tersimpan.', attempt },

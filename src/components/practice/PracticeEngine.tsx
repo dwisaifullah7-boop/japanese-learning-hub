@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { CheckCircle2, XCircle, RotateCcw, ArrowRight, Volume2 } from 'lucide-react'
@@ -29,6 +29,7 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
   const [isCorrect, setIsCorrect] = useState(false)
   const [userAnswer, setUserAnswer] = useState('')
   const [isFinished, setIsFinished] = useState(false)
+  const [flashcardRevealed, setFlashcardRevealed] = useState(false) // Flashcard: jawaban sudah terbuka, belum dinilai
   const [isMounted, setIsMounted] = useState(false)
   
   const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>(questions)
@@ -71,32 +72,40 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
   // Generate Pilihan Ganda (digunakan untuk 'multiple-choice' dan 'audio-quiz')
   const isChoiceMode = mode === 'multiple-choice' || mode === 'audio-quiz'
 
-  const options = useMemo(() => {
-    if (!isChoiceMode || !currentQuestion) return []
+  const [options, setOptions] = useState<string[]>([]);
 
-    const pool = shuffledQuestions.length > 0 ? shuffledQuestions : questions
-
-    // Ambil opsi salah dari soal lain yang back-nya berbeda dari jawaban benar
+  // Generate options for multiple-choice and audio-quiz modes
+  useEffect(() => {
+    if (!isChoiceMode || !currentQuestion) {
+      setOptions([]);
+      return;
+    }
+    const pool = shuffledQuestions.length > 0 ? shuffledQuestions : questions;
+    // Get wrong options from other questions
     const wrongOptions = pool
       .filter(q => q.id !== currentQuestion.id && q.back && q.back !== currentQuestion.back)
-      .map(q => q.back)
-
-    // Buat unik
+      .map(q => q.back);
+    // Ensure uniqueness and pick up to 3
     const uniqueWrong = Array.from(new Set(wrongOptions))
       .sort(() => Math.random() - 0.5)
-      .slice(0, 3)
-
-    // Gabungkan dengan jawaban benar
-    const combined = [...uniqueWrong, currentQuestion.back]
-
-    // Acak urutan final
-    return combined.sort(() => Math.random() - 0.5)
-  }, [isChoiceMode, currentQuestion, shuffledQuestions, questions])
+      .slice(0, 3);
+    // Combine with correct answer and shuffle
+    const combined = [...uniqueWrong, currentQuestion.back];
+    const shuffled = combined.sort(() => Math.random() - 0.5);
+    setOptions(shuffled);
+  }, [isChoiceMode, currentQuestion, shuffledQuestions, questions]);
 
   const handleFlashcardReveal = () => {
+    setFlashcardRevealed(true) // Hanya buka jawaban, belum simpan ke DB
+  }
+
+  const handleFlashcardGrade = (memorized: boolean) => {
+    setIsCorrect(memorized)
+    if (memorized) setScore(s => s + 1)
     setShowFeedback(true)
+    setFlashcardRevealed(false)
     if (currentQuestion) {
-      saveAttemptToDb(currentQuestion.id, true)
+      saveAttemptToDb(currentQuestion.id, memorized)
     }
   }
 
@@ -130,6 +139,7 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
     if (currentIndex + 1 < (shuffledQuestions.length || questions.length)) {
       setCurrentIndex(c => c + 1)
       setShowFeedback(false)
+      setFlashcardRevealed(false)
       setUserAnswer('')
       setIsCorrect(false)
     } else {
@@ -141,6 +151,7 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
     setCurrentIndex(0)
     setScore(0)
     setShowFeedback(false)
+    setFlashcardRevealed(false)
     setUserAnswer('')
     setIsFinished(false)
     const shuffled = [...questions].sort(() => Math.random() - 0.5)
@@ -219,12 +230,41 @@ export function PracticeEngine({ questions, mode, materialType = 'vocabulary' }:
         )}
 
         {/* --- FLASHCARD --- */}
-        {mode === 'flashcard' && !showFeedback && (
+        {/* Step 1: Tombol reveal */}
+        {mode === 'flashcard' && !flashcardRevealed && !showFeedback && (
           <Button onClick={handleFlashcardReveal} variant="outline" size="lg" className="mt-4">
             Klik untuk melihat jawaban
           </Button>
         )}
 
+        {/* Step 2: Jawaban terbuka + tombol self-grading */}
+        {mode === 'flashcard' && flashcardRevealed && !showFeedback && (
+          <div className="w-full space-y-4 mt-4">
+            <div className="bg-gray-50 p-4 rounded-lg w-full border border-gray-200">
+              <p className="text-2xl font-bold text-gray-900">{currentQuestion.back}</p>
+              {currentQuestion.romaji && (
+                <p className="text-sm text-blue-600 mt-1">{currentQuestion.romaji}</p>
+              )}
+            </div>
+            <p className="text-sm text-gray-500 text-center">Apakah kamu sudah hafal?</p>
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => handleFlashcardGrade(false)}
+                className="py-3 px-4 text-base font-medium border-2 rounded-lg bg-red-50 border-red-300 text-red-700 hover:bg-red-100 transition-all flex items-center justify-center gap-2"
+              >
+                <XCircle className="w-5 h-5" /> Belum Hafal
+              </button>
+              <button
+                onClick={() => handleFlashcardGrade(true)}
+                className="py-3 px-4 text-base font-medium border-2 rounded-lg bg-green-50 border-green-300 text-green-700 hover:bg-green-100 transition-all flex items-center justify-center gap-2"
+              >
+                <CheckCircle2 className="w-5 h-5" /> Sudah Hafal
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3: Feedback setelah grading */}
         {mode === 'flashcard' && showFeedback && (
           <div className="bg-gray-50 p-4 rounded-lg w-full border border-gray-200">
             <p className="text-2xl font-bold text-gray-900">{currentQuestion.back}</p>

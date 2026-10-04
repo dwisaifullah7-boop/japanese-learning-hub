@@ -20,6 +20,23 @@ model User {
   accounts         Account[]
   sessions         Session[]
   practiceAttempts PracticeAttempt[]
+  masteries        Mastery[]
+}
+
+model Mastery {
+  id            String   @id @default(cuid())
+  userId        String
+  materialType  String   // 'hiragana' | 'katakana' | 'kanji' | 'vocabulary' | 'particle' | 'grammar'
+  materialId    String
+  correctCount  Int      @default(0)
+  attemptCount  Int      @default(0)
+  // level: 'NEW' | 'LEARNING' | 'REVIEW' | 'MASTERED'
+  level         String   @default("NEW")
+  lastAttemptAt DateTime @default(now())
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, materialType, materialId])
 }
 
 model PracticeAttempt {

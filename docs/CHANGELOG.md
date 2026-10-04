@@ -4,6 +4,22 @@ Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
 ## [Unreleased]
 
+## [Phase 7] - 2026-10-04
+### Added
+- Model `Mastery` di database (correctCount, attemptCount, level: NEW/LEARNING/REVIEW/MASTERED)
+- `src/lib/mastery.ts` — utility: `calculateLevel()`, `updateMastery()`, `getMasterySummary()`, `getWeakMaterials()`
+- API `GET /api/mastery` — summary jumlah per level untuk user login
+- API `GET /api/mastery/weak` — daftar materi lemah (accuracy < 60%)
+- Halaman `/mastery` — progress bar, 4 level cards, preview weak materials, CTA jika belum ada data
+- Halaman `/review` — daftar lengkap materi lemah dengan accuracy bars, badges, & tombol latih
+- Link **Review** di Navbar (desktop & mobile)
+### Changed
+- `POST /api/practice/attempt` — sekarang otomatis memanggil `updateMastery()` setelah setiap attempt
+
+## [Phase 5 Fix] - 2026-10-04
+### Fixed
+- Flashcard mode: menambahkan self-grading **"Sudah Hafal"** / **"Belum Hafal"** agar attempt ke DB akurat (tidak selalu `isCorrect: true`)
+
 ## [Phase 6] - 2026-10-04
 ### Added
 - Mode latihan baru: **Audio Quiz** (auto play suara audio & tebak arti/kata)

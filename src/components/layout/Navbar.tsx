@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
-import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User } from 'lucide-react'
+import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Navbar() {
@@ -11,14 +11,15 @@ export function Navbar() {
   const { data: session } = useSession() // Ambil data session
 
   const mainMenu = [
-    { href: '/home', label: 'Home', icon: Home },
-    { href: '/learn', label: 'Learn', icon: BookOpen },
+    { href: '/home',     label: 'Home',     icon: Home },
+    { href: '/learn',    label: 'Learn',    icon: BookOpen },
     { href: '/practice', label: 'Practice', icon: PenTool },
-    { href: '/mastery', label: 'Mastery', icon: Target },
-    { href: '/exam', label: 'Exam', icon: FileText },
-    { href: '/search', label: 'Search', icon: Search },
+    { href: '/mastery',  label: 'Mastery',  icon: Target },
+    { href: '/review',   label: 'Review',   icon: AlertCircle },
+    { href: '/exam',     label: 'Exam',     icon: FileText },
+    { href: '/search',   label: 'Search',   icon: Search },
     { href: '/progress', label: 'Progress', icon: BarChart3 },
-    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/dashboard',label: 'Dashboard',icon: LayoutDashboard },
   ]
 
   return (
