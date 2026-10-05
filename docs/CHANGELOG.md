@@ -2,6 +2,13 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [Phase 10] - 2026-10-05
+### Added
+- API `GET /api/search` — Endpoint pencarian lokal multi-tabel terpadu untuk 6 tipe materi (vocabulary, kanji, particle, grammar, hiragana, katakana)
+- API `GET /api/search/web` — Endpoint rujukan pencarian eksternal pembelajaran bahasa Jepang (Google Search, Jisho.org, Wiktionary)
+- Komponen `SearchClient` (`src/components/search/SearchClient.tsx`) — Antarmuka pencarian interaktif dengan filter tab kategori, quick suggestion chips, audio button, & rujukan web
+- Halaman **Search Engine** (`/search`) — Rebuild penuh halaman pencarian terpadu dengan integrasi `SearchClient`
+
 ## [Phase 9] - 2026-10-04
 ### Added
 - Model `ExamResult` di database (score, totalQuestions, percentage, passed, durationSeconds, user relation)
