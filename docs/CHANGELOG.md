@@ -2,6 +2,11 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v4.0-advanced] - Advanced Learning Expansion - 2026-10-07
+### Added
+- Halaman **Perbandingan Partikel** (`/learn/particle/compare`) — Panduan interaktif perbandingan partikel membingungkan (`は vs が`, `に vs で`, `に vs へ`, `は vs も`) dengan audio pelafalan & contoh kalimat
+- Komponen **StrokePracticeCanvas** (`src/components/shared/StrokePracticeCanvas.tsx`) — Kanvas menggambar interaktif (HTML5 Canvas) untuk latihan menulis karakter Hiragana, Katakana, & Kanji dengan dukungan sentuhan/mouse, fitur undo stroke, panduan bayangan karakter (guide overlay), & tombol hapus
+
 ## [v3.0-production] - Phase 15-18 Complete - 2026-10-07
 ### Added & Verified
 - **Phase 15 (Testing)**: Audit fungsionalitas penuh untuk 11 modul utama (`Login`, `Learn`, `Audio`, `Practice`, `Mastery`, `Review`, `Exam`, `Search`, `Progress`, `Settings`, `Dashboard`).
