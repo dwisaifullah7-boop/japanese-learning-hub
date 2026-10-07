@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
 
-export default auth((req) => {
+export const proxy = auth((req) => {
   const isLoggedIn = !!req.auth
   const pathname = req.nextUrl.pathname
 
@@ -22,6 +22,8 @@ export default auth((req) => {
     return NextResponse.redirect(new URL('/home', req.url))
   }
 })
+
+export default proxy
 
 // Konfigurasi matcher: Jalankan middleware untuk semua route kecuali file statis dan API internal Next.js
 export const config = {
