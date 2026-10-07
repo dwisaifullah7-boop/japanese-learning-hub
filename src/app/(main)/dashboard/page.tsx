@@ -1,4 +1,5 @@
 import { auth } from '@/lib/auth'
+import { RecommendationWidget } from '@/components/dashboard/RecommendationWidget'
 import { redirect } from 'next/navigation'
 import { getUserStats } from '@/lib/progress'
 import { prisma } from '@/lib/prisma'
@@ -223,6 +224,9 @@ export default async function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Smart Recommendation Widget */}
+      <RecommendationWidget />
 
       {/* Recent Activity Feed */}
       <section className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
