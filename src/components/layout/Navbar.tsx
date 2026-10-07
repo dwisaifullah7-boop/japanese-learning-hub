@@ -1,14 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { data: session } = useSession() // Ambil data session
+  const [isMounted, setIsMounted] = useState(false)
+  const { data: session, status } = useSession()
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const mainMenu = [
     { href: '/home',     label: 'Home',     icon: Home },
@@ -46,13 +51,15 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* User Menu (Desktop) - DINAMIS */}
+          {/* User Menu (Desktop) - Hydration Safe */}
           <div className="hidden lg:flex items-center space-x-2">
-            {session?.user ? (
+            {!isMounted ? (
+              <div className="h-8 w-24 bg-gray-100 animate-pulse rounded-md" />
+            ) : session?.user ? (
               <>
                 <div className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700">
                   <User className="w-4 h-4" />
-                  <span>{session.user.name || session.user.email}</span>
+                  <span className="max-w-[150px] truncate">{session.user.name || session.user.email}</span>
                 </div>
                 <Button 
                   variant="outline" 
@@ -104,13 +111,15 @@ export function Navbar() {
               </Link>
             ))}
             
-            {/* Mobile User Menu - DINAMIS */}
+            {/* Mobile User Menu - Hydration Safe */}
             <div className="border-t border-gray-200 pt-2 mt-2 space-y-1">
-              {session?.user ? (
+              {!isMounted ? (
+                <div className="h-10 w-full bg-gray-100 animate-pulse rounded-md my-1" />
+              ) : session?.user ? (
                 <>
                   <div className="flex items-center space-x-2 px-3 py-3 text-base font-medium text-gray-700">
                     <User className="w-5 h-5" />
-                    <span>{session.user.name || session.user.email}</span>
+                    <span className="truncate">{session.user.name || session.user.email}</span>
                   </div>
                   <button
                     onClick={() => {

@@ -2,6 +2,15 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v2.0-final] - Phase 11-14 Complete - 2026-10-07
+### Added
+- `src/lib/progress.ts` — Modul kalkulasi XP, Level, Streak, Akurasi, & Achievements interaktif
+- API `GET /api/user/stats` — Endpoint statistik pembelajaran & gamifikasi lengkap
+- Halaman **Progress & Statistics** (`/progress`) — Rebuild penuh dengan Banner Hero Level/XP, Streak harian, Distribusi Mastery, & Kartu Pencapaian (Achievements)
+- Halaman **Dashboard Utama** (`/dashboard`) — Rebuild penuh dengan banner personalisasi user, widget Target Latihan Harian, Rekomendasi Langkah Berikutnya, & Feed Aktivitas Terakhir
+- Komponen `SettingsClient` & Halaman **Settings** (`/settings`) — Pengaturan Kecepatan Suara TTS ja-JP (Normal/Slow), Auto-play Audio, Sound Effects, Tema Tampilan (Default/Sakura), Reduced Motion, & Target Harian
+- Perbaikan Hydration Mismatch di `Navbar.tsx` dengan `isMounted` guard & pulse loading skeleton
+
 ## [Phase 10] - 2026-10-05
 ### Added
 - API `GET /api/search` — Endpoint pencarian lokal multi-tabel terpadu untuk 6 tipe materi (vocabulary, kanji, particle, grammar, hiragana, katakana)
