@@ -55,6 +55,7 @@ npm run dev
 | v8.0 | ✅ Selesai | Bab 3 Curriculum Expansion & Modular Exam Presets |
 | v9.0 | ✅ Selesai | Bab 4 Time System, Verbs & Interactive Masu Conjugator |
 | v10.0 | ✅ Selesai | Bab 5 Motion Verbs, Transportation & Interactive Japanese Calendar |
+| v11.0 | ✅ Selesai | Bab 6 Daily Actions, Direct Object Marker を & Invitations |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

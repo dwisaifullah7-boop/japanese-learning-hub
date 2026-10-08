@@ -85,6 +85,17 @@ export default async function ExamPage() {
       category: 'Lesson Exam',
     },
     {
+      id: 'bab6',
+      title: 'Ujian Evaluasi Bab 6',
+      description: 'Materi Bab 6: Objek langsung (を), tempat aksi (で), kata kerja sehari-hari (食べます/飲みます/見ます), dan ajakan (～ませんか/～ましょう).',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-orange-200 bg-orange-50/50 hover:border-orange-400',
+      badge: 'bg-orange-100 text-orange-700',
+      category: 'Lesson Exam',
+    },
+    {
       id: 'grammar-particle',
       title: 'Ujian Partikel & Tata Bahasa',
       description: 'Fokus 10 soal khusus penggunaan partikel (は, に, で, を, の, と) dan pola kalimat Minna no Nihongo.',

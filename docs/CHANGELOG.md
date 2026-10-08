@@ -2,6 +2,15 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v11.0-daily-actions-expansion] - Bab 6 Daily Actions, Direct Object Marker を & Invitations - 2026-10-08
+### Added
+- **Lesson Bab 6** Minna no Nihongo — Kata Kerja Transitive & Objek Langsung (を), Tempat Berlangsungnya Aksi (で), Ajakan (～ませんか), dan Persetujuan/Penawaran (～ましょう/～ましょうか)
+- **Kosakata Bab 6** (+16 kata: 食べます, 飲みます, 吸います, 見ます, 聞きます, 読みます, 書きます, 買います, 撮ります, ご飯, パン, 水, お茶, お酒, 映画, 手紙)
+- **Pola Tata Bahasa Bab 6** (+4 pola: [Objek] を [Kata Kerja Transitive], [Tempat] で [Kata Kerja], いっしょに ～ませんか, ～ましょう / ～ましょうか)
+- **Kanji Bab 6** (+8 karakter JLPT N5 Aksi & Komunikasi: 食, 飲, 見, 聞, 読, 書, 買, 話)
+- **Paket Ujian Bab 6** pada Exam Hub (`/exam` & `/api/exam/questions?preset=bab6`)
+- Database total: 46 Hiragana, 46 Katakana, 50 Kanji, 93 Kosakata, 8 Partikel, 25 Pola Tata Bahasa, 6 Lessons
+
 ## [v10.0-motion-and-dates-expansion] - Bab 5 Motion Verbs, Transportation & Interactive Japanese Calendar - 2026-10-08
 ### Added
 - **Lesson Bab 5** Minna no Nihongo — Kata Kerja Perpindahan (行きます・来ます・帰ります), Partikel Arah (へ), Sarana Transportasi (で), dan Rekan (と)
