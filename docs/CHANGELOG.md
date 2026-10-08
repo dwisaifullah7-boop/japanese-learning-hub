@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v10.0-motion-and-dates-expansion] - Bab 5 Motion Verbs, Transportation & Interactive Japanese Calendar - 2026-10-08
+### Added
+- **Lesson Bab 5** Minna no Nihongo — Kata Kerja Perpindahan (行きます・来ます・帰ります), Partikel Arah (へ), Sarana Transportasi (で), dan Rekan (と)
+- **Halaman Penanggalan & Kalender Jepang Interaktif** (`/learn/dates`) — Simulator tanggal 1〜31 dan bulan 1〜12 dengan visualisasi hari-hari khusus/irregular (ついたち, ふつか, みっか, よっか, はつか, dll.) serta audio pelafalan
+- **Update Learn Hub Portal** (`/learn`) — Grid 3 kolom portal khusus (Konjugasi Kata Kerja, Penanggalan & Kalender, Perbandingan Partikel)
+- **Kosakata Bab 5** (+16 kata: 行きます, 来ます, 帰ります, 高校, 駅, 飛行機, 船, 電車, 地下鉄, 新幹線, バス, タクシー, 自転車, 歩いて, 友達, 誕生日)
+- **Pola Tata Bahasa Bab 5** (+4 pola: [Tempat] へ 行きます/来ます/帰ります, どこ[へ]も 行きません, [Kendaraan] で 行きます, [Orang] と 行きます)
+- **Kanji Bab 5** (+8 karakter JLPT N5: 行, 来, 帰, 年, 校, 店, 駅, 車)
+- **Paket Ujian Bab 5** pada Exam Hub (`/exam` & `/api/exam/questions?preset=bab5`)
+- Database total: 46 Hiragana, 46 Katakana, 42 Kanji, 77 Kosakata, 8 Partikel, 21 Pola Tata Bahasa, 5 Lessons (Lengkap Bab 1〜5)
+
 ## [v9.0-verbs-and-time-expansion] - Bab 4 Time System, Verbs & Interactive Masu Conjugator - 2026-10-08
 ### Added
 - **Lesson Bab 4** Minna no Nihongo — Sistem Waktu (今 ～時 ～分), Hari (何曜日), Rentang Waktu (～から ～まで), dan Pengenalan Kata Kerja Dasar

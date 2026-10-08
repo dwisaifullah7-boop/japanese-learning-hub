@@ -54,6 +54,7 @@ npm run dev
 | v7.0 | ✅ Selesai | Interactive Experience: Home dynamic stats & Kanji/Katakana Canvas |
 | v8.0 | ✅ Selesai | Bab 3 Curriculum Expansion & Modular Exam Presets |
 | v9.0 | ✅ Selesai | Bab 4 Time System, Verbs & Interactive Masu Conjugator |
+| v10.0 | ✅ Selesai | Bab 5 Motion Verbs, Transportation & Interactive Japanese Calendar |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

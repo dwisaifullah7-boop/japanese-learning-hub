@@ -74,6 +74,17 @@ export default async function ExamPage() {
       category: 'Lesson Exam',
     },
     {
+      id: 'bab5',
+      title: 'Ujian Evaluasi Bab 5',
+      description: 'Materi Bab 5: Kata kerja perpindahan (行きます/来ます/帰ります), partikel arah へ, sarana transportasi で, dan penanggalan.',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-teal-200 bg-teal-50/50 hover:border-teal-400',
+      badge: 'bg-teal-100 text-teal-700',
+      category: 'Lesson Exam',
+    },
+    {
       id: 'grammar-particle',
       title: 'Ujian Partikel & Tata Bahasa',
       description: 'Fokus 10 soal khusus penggunaan partikel (は, に, で, を, の, と) dan pola kalimat Minna no Nihongo.',
