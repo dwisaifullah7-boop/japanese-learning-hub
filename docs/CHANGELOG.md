@@ -2,6 +2,30 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v7.0-interactive-experience] - Interactive Mastery & Complete Experience - 2026-10-08
+### Added
+- Halaman **Home** (`/home`) — Terintegrasi dengan metrik pembelajaran dinamis (Total XP riil, Level, Streak harian, progress target harian, & quick portals)
+- Komponen **KatakanaGridClient** (`KatakanaGridClient.tsx`) & integrasi ke `/learn/katakana` dengan modal detail karakter, audio pelafalan, serta **StrokePracticeCanvas** untuk latihan menulis Katakana
+- Komponen **KanjiGridClient** (`KanjiGridClient.tsx`) & integrasi ke `/learn/kanji` dengan modal detail karakter, cara baca 音読み (Onyomi) & 訓読み (Kunyomi), audio pelafalan, serta **StrokePracticeCanvas** untuk latihan menulis Kanji N5
+- Pembaruan dokumentasi roadmap pada `README.md` dan `CHANGELOG.md`
+
+## [v6.0-content-expansion] - Content Expansion Bab 2 & Complete Katakana - 2026-10-08
+### Added
+- **Lesson Bab 2** Minna no Nihongo (Demonstratif これ・それ・あれ, angka, benda, dan harga)
+- Aksara **Katakana Lengkap** (46 karakter standar Gojūon)
+- **Kosakata Bab 2** (+15 kata: これ, それ, あれ, この, その, あの, じしょ, ざっし, しんぶん, dll.)
+- **Pola Tata Bahasa Bab 2** (+4 pola: これ/それ/あれ は ～です, この/その/あの ～, ～ですか、～ですか, ～は いくらですか)
+- **Kanji Bab 2** (+8 karakter JLPT N5: 山, 川, 田, 中, 上, 下, 金, 火)
+- Halaman **Lesson Detail** (`/learn/lesson/[lessonId]`) — Menampilkan seluruh materi per bab secara terstruktur dengan audio button
+- Halaman **Learn Hub** (`/learn`) — Rebuild dengan counter materi dinamis dan badge rincian materi per lesson
+
+## [v5.0-smart-learning] - Smart Learning & Recommendation Engine - 2026-10-08
+### Added
+- Rebuild seluruh halaman belajar: Hiragana (dengan `HiraganaGridClient`), Partikel, Katakana, Kanji, Grammar, dan Kosakata
+- API **Smart Recommendation Engine** (`/api/recommend`) — Menganalisis kelemahan mastery, akurasi per kategori, dan materi yang belum disentuh
+- Komponen **RecommendationWidget** pada Dashboard untuk rekomendasi belajar harian otomatis
+- Script ekspansi database idempoten (`prisma/seed-expand.ts`)
+
 ## [v4.0-advanced] - Advanced Learning Expansion - 2026-10-07
 ### Added
 - Halaman **Perbandingan Partikel** (`/learn/particle/compare`) — Panduan interaktif perbandingan partikel membingungkan (`は vs が`, `に vs で`, `に vs へ`, `は vs も`) dengan audio pelafalan & contoh kalimat

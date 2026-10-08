@@ -39,17 +39,19 @@ npm run dev
 | 2 | ✅ Selesai | Content & Database (Bab 1) |
 | 3 | ✅ Selesai | Learn (Detail materi) |
 | 4 | ✅ Selesai | Audio & Stroke Order |
-| 5 | 🔄 WIP | Practice Core (Flashcard, MC, Type) |
-| 6 | ⏳ Belum | Specialized Practice |
-| 7 | ⏳ Belum | Mastery & Weak Material |
-| 8 | ⏳ Belum | Review System |
-| 9 | ⏳ Belum | Exam |
-| 10 | ⏳ Belum | Search |
-| 11 | ⏳ Belum | Progress & Dashboard |
-| 12 | ⏳ Belum | Gamification (XP, Level, Streak) |
-| 13 | ⏳ Belum | Visual Polish |
-| 14 | ⏳ Belum | Settings & Accessibility |
-| 15-18 | ⏳ Belum | Testing, Bug Fix, Optimization, Final |
+| 5 | ✅ Selesai | Practice Core (Flashcard, MC, Type) |
+| 6 | ✅ Selesai | Specialized Practice & Audio Quiz |
+| 7 | ✅ Selesai | Mastery & Weak Material Tracking |
+| 8 | ✅ Selesai | Review System & Review Hub |
+| 9 | ✅ Selesai | Exam Engine & Evaluasi Ujian |
+| 10 | ✅ Selesai | Multi-table & Web Search Engine |
+| 11-12 | ✅ Selesai | Progress, Gamifikasi (XP/Level/Streak), & Dashboard |
+| 13-14 | ✅ Selesai | Visual Polish, Settings, & Aksesibilitas |
+| 15-18 | ✅ Selesai | Testing Audit, Bug Fix, Optimasi, & Production Release |
+| v4.0 | ✅ Selesai | Advanced: Perbandingan Partikel & Stroke Canvas |
+| v5.0 | ✅ Selesai | Smart Learning & Recommendation Engine |
+| v6.0 | ✅ Selesai | Content Expansion Bab 2 & Katakana Lengkap |
+| v7.0 | ✅ Selesai | Interactive Experience: Home dynamic stats & Kanji/Katakana Canvas |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)
