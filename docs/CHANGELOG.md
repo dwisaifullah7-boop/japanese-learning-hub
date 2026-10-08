@@ -2,6 +2,15 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v8.0-curriculum-expansion] - Bab 3 Curriculum Expansion & Modular Exam Presets - 2026-10-08
+### Added
+- **Lesson Bab 3** Minna no Nihongo — Materi Lokasi & Fasilitas (ここ・そこ・あそこ・どこ, こちら・そちら・あちら・どちら)
+- **Kosakata Bab 3** (+15 kata: 教室, 食堂, 事務所, 会議室, 受付, 部屋, 階段, dll.)
+- **Pola Tata Bahasa Bab 3** (+4 pola: ここ/そこ/あそこ は [Tempat] です, [Subjek] は [Tempat] です, どこ/どちら ですか, [Negara] の [Benda] です)
+- **Kanji Bab 3** (+8 karakter JLPT N5: 東, 西, 南, 北, 口, 目, 手, 足)
+- **Preset Ujian Bab Mandiri** (`/api/exam/questions` & `/exam`) — 6 paket ujian: Comprehensive, Bab 1, Bab 2, Bab 3, Tata Bahasa & Partikel, serta Kanji & Kosakata
+- Database total: 46 Hiragana, 46 Katakana, 26 Kanji, 45 Kosakata, 8 Partikel, 13 Pola Tata Bahasa, 3 Lessons
+
 ## [v7.0-interactive-experience] - Interactive Mastery & Complete Experience - 2026-10-08
 ### Added
 - Halaman **Home** (`/home`) — Terintegrasi dengan metrik pembelajaran dinamis (Total XP riil, Level, Streak harian, progress target harian, & quick portals)

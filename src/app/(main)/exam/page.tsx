@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { Button } from '@/components/ui/button'
-import { FileText, Award, Clock, Sparkles, CheckCircle2, XCircle, ArrowRight, ShieldCheck } from 'lucide-react'
+import { FileText, Award, Clock, Sparkles, CheckCircle2, XCircle, ArrowRight, ShieldCheck, BookOpen } from 'lucide-react'
 
 export default async function ExamPage() {
   const session = await auth()
@@ -27,26 +27,62 @@ export default async function ExamPage() {
       passingScore: '70%',
       color: 'border-blue-200 bg-blue-50/50 hover:border-blue-400',
       badge: 'bg-blue-100 text-blue-700',
+      category: 'Komprehensif',
     },
     {
-      id: 'grammar-particle',
-      title: 'Ujian Partikel & Tata Bahasa',
-      description: 'Fokus 10 soal khusus penggunaan partikel (は, に, で, を) dan pola kalimat dasar.',
+      id: 'bab1',
+      title: 'Ujian Evaluasi Bab 1',
+      description: 'Materi Bab 1: Perkenalan diri, Hiragana dasar, kosakata orang/profesi, dan pola kalimat です/じゃありません.',
       questionCount: 10,
       timeMinutes: 8,
       passingScore: '70%',
-      color: 'border-purple-200 bg-purple-50/50 hover:border-purple-400',
-      badge: 'bg-purple-100 text-purple-700',
+      color: 'border-emerald-200 bg-emerald-50/50 hover:border-emerald-400',
+      badge: 'bg-emerald-100 text-emerald-700',
+      category: 'Lesson Exam',
     },
     {
-      id: 'kanji-vocab',
-      title: 'Ujian Kanji & Kosakata',
-      description: 'Fokus 10 soal pengenalan karakter Kanji dasar dan kosakata Minna no Nihongo.',
+      id: 'bab2',
+      title: 'Ujian Evaluasi Bab 2',
+      description: 'Materi Bab 2: Demonstratif これ・それ・あれ・この・その・あの, kosakata benda/alat, dan angka.',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-indigo-200 bg-indigo-50/50 hover:border-indigo-400',
+      badge: 'bg-indigo-100 text-indigo-700',
+      category: 'Lesson Exam',
+    },
+    {
+      id: 'bab3',
+      title: 'Ujian Evaluasi Bab 3',
+      description: 'Materi Bab 3: Lokasi & tempat ここ・そこ・あそこ・どこ, fasilitas umum, arah, dan kanji mata angin.',
       questionCount: 10,
       timeMinutes: 8,
       passingScore: '70%',
       color: 'border-amber-200 bg-amber-50/50 hover:border-amber-400',
       badge: 'bg-amber-100 text-amber-700',
+      category: 'Lesson Exam',
+    },
+    {
+      id: 'grammar-particle',
+      title: 'Ujian Partikel & Tata Bahasa',
+      description: 'Fokus 10 soal khusus penggunaan partikel (は, に, で, を, の, と) dan pola kalimat Minna no Nihongo.',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-purple-200 bg-purple-50/50 hover:border-purple-400',
+      badge: 'bg-purple-100 text-purple-700',
+      category: 'Spesialisasi',
+    },
+    {
+      id: 'kanji-vocab',
+      title: 'Ujian Kanji & Kosakata',
+      description: 'Fokus 10 soal pengenalan 26 karakter Kanji N5 (angka, alam, arah) dan 45 kosakata Minna no Nihongo.',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-rose-200 bg-rose-50/50 hover:border-rose-400',
+      badge: 'bg-rose-100 text-rose-700',
+      category: 'Spesialisasi',
     },
   ]
 
@@ -57,52 +93,52 @@ export default async function ExamPage() {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 max-w-5xl mx-auto">
       <PageHeader
         title="Exam Hub"
-        description="Uji kemampuan dan ukur sejauh mana penguasaan bahasa Jepang Anda."
-        icon={<Award className="w-8 h-8" />}
+        description="Uji kemampuan dan ukur sejauh mana penguasaan materi bahasa Jepang Anda dalam simulasi ujian berbatas waktu."
+        icon={<Award className="w-8 h-8 text-blue-600" />}
       />
 
       {/* Exam Categories */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
           <FileText className="w-6 h-6 text-blue-600" />
-          Pilih Ujian yang Tersedia
+          Pilih Paket Ujian yang Tersedia
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {availableExams.map(exam => (
             <div
               key={exam.id}
-              className={`bg-white p-6 rounded-2xl border ${exam.color} shadow-sm transition-all flex flex-col justify-between space-y-4`}
+              className={`bg-white p-6 rounded-2xl border ${exam.color} shadow-sm transition-all flex flex-col justify-between space-y-4 hover:shadow-md`}
             >
               <div className="space-y-2">
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full uppercase ${exam.badge}`}>
-                  Standard Exam
+                <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${exam.badge}`}>
+                  {exam.category}
                 </span>
                 <h3 className="text-xl font-bold text-gray-900 pt-1">{exam.title}</h3>
-                <p className="text-sm text-gray-600">{exam.description}</p>
+                <p className="text-xs text-gray-600 line-clamp-3 leading-relaxed">{exam.description}</p>
               </div>
 
               <div className="space-y-3 pt-2">
                 <div className="grid grid-cols-3 gap-2 text-xs text-center border-t border-b border-gray-100 py-3">
                   <div>
-                    <span className="text-gray-400 block">Jumlah Soal</span>
-                    <span className="font-bold text-gray-800">{exam.questionCount} Soal</span>
+                    <span className="text-gray-400 block text-[10px]">Soal</span>
+                    <span className="font-bold text-gray-800">{exam.questionCount} Butir</span>
                   </div>
                   <div>
-                    <span className="text-gray-400 block">Waktu</span>
+                    <span className="text-gray-400 block text-[10px]">Waktu</span>
                     <span className="font-bold text-gray-800">{exam.timeMinutes} Menit</span>
                   </div>
                   <div>
-                    <span className="text-gray-400 block">Kelulusan</span>
+                    <span className="text-gray-400 block text-[10px]">Lulus</span>
                     <span className="font-bold text-gray-800">{exam.passingScore}</span>
                   </div>
                 </div>
 
                 <Link href={`/exam/session?preset=${exam.id}`} className="block">
-                  <Button className="w-full gap-2 font-semibold">
+                  <Button className="w-full gap-2 font-semibold text-sm">
                     Mulai Ujian <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
@@ -118,9 +154,9 @@ export default async function ExamPage() {
         <div className="space-y-1">
           <h4 className="font-bold text-base text-blue-950">Petunjuk Pengerjaan Ujian:</h4>
           <ul className="list-disc list-inside space-y-1 text-blue-800/90 text-xs sm:text-sm">
-            <li>Timer akan berjalan otomatis begitu ujian dimulai. Jawaban tersimpan di sistem.</li>
+            <li>Timer akan berjalan otomatis begitu tombol Mulai ditekan. Jawaban dikunci saat waktu habis atau submit dilakukan.</li>
             <li>Nilai minimal kelulusan adalah <strong>70.0%</strong>.</li>
-            <li>Hasil ujian akan otomatis memperbarui tingkat <strong>Mastery</strong> materi Anda.</li>
+            <li>Hasil ujian akan otomatis memperbarui skor <strong>Mastery</strong> dan riwayat pembelajaran akun Anda.</li>
           </ul>
         </div>
       </div>

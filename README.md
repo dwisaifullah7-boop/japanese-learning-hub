@@ -52,6 +52,7 @@ npm run dev
 | v5.0 | ✅ Selesai | Smart Learning & Recommendation Engine |
 | v6.0 | ✅ Selesai | Content Expansion Bab 2 & Katakana Lengkap |
 | v7.0 | ✅ Selesai | Interactive Experience: Home dynamic stats & Kanji/Katakana Canvas |
+| v8.0 | ✅ Selesai | Bab 3 Curriculum Expansion & Modular Exam Presets |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

@@ -22,25 +22,42 @@ export async function GET(req: Request) {
     let rawParticle: any[] = []
     let rawGrammar: any[] = []
 
-    if (preset === 'comprehensive' || preset === 'kanji-vocab') {
-      [rawVocab, rawKanji] = await Promise.all([
-        prisma.vocabulary.findMany(),
-        prisma.kanji.findMany(),
-      ])
-    }
+    if (preset.startsWith('bab')) {
+      const babOrder = parseInt(preset.replace('bab', ''), 10) || 1
+      const targetLesson = await prisma.lesson.findFirst({
+        where: { order: babOrder },
+      })
 
-    if (preset === 'comprehensive' || preset === 'grammar-particle') {
-      [rawParticle, rawGrammar] = await Promise.all([
-        prisma.particle.findMany(),
-        prisma.grammar.findMany(),
-      ])
-    }
+      if (targetLesson) {
+        ;[rawVocab, rawKanji, rawParticle, rawGrammar, rawHira] = await Promise.all([
+          prisma.vocabulary.findMany({ where: { lessonId: targetLesson.id } }),
+          prisma.kanji.findMany({ where: { lessonId: targetLesson.id } }),
+          prisma.particle.findMany({ where: { lessonId: targetLesson.id } }),
+          prisma.grammar.findMany({ where: { lessonId: targetLesson.id } }),
+          prisma.hiragana.findMany({ where: { lessonId: targetLesson.id } }),
+        ])
+      }
+    } else {
+      if (preset === 'comprehensive' || preset === 'kanji-vocab') {
+        ;[rawVocab, rawKanji] = await Promise.all([
+          prisma.vocabulary.findMany(),
+          prisma.kanji.findMany(),
+        ])
+      }
 
-    if (preset === 'comprehensive') {
-      [rawHira, rawKata] = await Promise.all([
-        prisma.hiragana.findMany(),
-        prisma.katakana.findMany(),
-      ])
+      if (preset === 'comprehensive' || preset === 'grammar-particle') {
+        ;[rawParticle, rawGrammar] = await Promise.all([
+          prisma.particle.findMany(),
+          prisma.grammar.findMany(),
+        ])
+      }
+
+      if (preset === 'comprehensive') {
+        ;[rawHira, rawKata] = await Promise.all([
+          prisma.hiragana.findMany(),
+          prisma.katakana.findMany(),
+        ])
+      }
     }
 
     // Build pool of all potential questions
@@ -120,11 +137,17 @@ export async function GET(req: Request) {
     const shuffledPool = [...pool].sort(() => Math.random() - 0.5)
     const selectedQuestions = shuffledPool.slice(0, Math.min(totalTarget, shuffledPool.length))
 
+    // For distractor generation, get a diverse set of candidate answers from global pool if local pool is small
+    let distractorPool = pool
+    if (distractorPool.length < 6) {
+      const allVocab = await prisma.vocabulary.findMany({ select: { meaning: true } })
+      distractorPool = allVocab.map(v => ({ back: v.meaning }))
+    }
+
     // For each selected question, generate 4 options (1 correct + 3 wrong options)
     const formattedQuestions = selectedQuestions.map(q => {
-      // Pick wrong options from other pool questions with different back
-      const wrongCandidates = pool
-        .filter(item => item.id !== q.id && item.back && item.back !== q.back)
+      const wrongCandidates = distractorPool
+        .filter(item => item.back && item.back !== q.back)
         .map(item => item.back)
 
       const uniqueWrong = Array.from(new Set(wrongCandidates))
@@ -143,10 +166,13 @@ export async function GET(req: Request) {
       comprehensive: 'Ujian Evaluasi Komprehensif (N5)',
       'grammar-particle': 'Ujian Spesialisasi Tata Bahasa & Partikel',
       'kanji-vocab': 'Ujian Spesialisasi Kanji & Kosakata',
+      bab1: 'Ujian Evaluasi Bab 1 (Perkenalan & Dasar)',
+      bab2: 'Ujian Evaluasi Bab 2 (Demonstratif & Benda)',
+      bab3: 'Ujian Evaluasi Bab 3 (Tempat & Lokasi)',
     }
 
     return NextResponse.json({
-      title: titleMap[preset] || 'Ujian Bahasa Jepang',
+      title: titleMap[preset] || `Ujian ${preset.toUpperCase()}`,
       preset,
       questions: formattedQuestions,
     })
