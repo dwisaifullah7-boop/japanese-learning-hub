@@ -169,6 +169,7 @@ export async function GET(req: Request) {
       bab1: 'Ujian Evaluasi Bab 1 (Perkenalan & Dasar)',
       bab2: 'Ujian Evaluasi Bab 2 (Demonstratif & Benda)',
       bab3: 'Ujian Evaluasi Bab 3 (Tempat & Lokasi)',
+      bab4: 'Ujian Evaluasi Bab 4 (Waktu & Kata Kerja)',
     }
 
     return NextResponse.json({

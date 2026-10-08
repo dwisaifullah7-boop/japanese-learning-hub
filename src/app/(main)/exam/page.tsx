@@ -63,6 +63,17 @@ export default async function ExamPage() {
       category: 'Lesson Exam',
     },
     {
+      id: 'bab4',
+      title: 'Ujian Evaluasi Bab 4',
+      description: 'Materi Bab 4: Waktu & jam (何時何分), konjugasi kata kerja (〜ます/〜ません/〜ました), dan partikel waktu に/から/まで.',
+      questionCount: 10,
+      timeMinutes: 8,
+      passingScore: '70%',
+      color: 'border-cyan-200 bg-cyan-50/50 hover:border-cyan-400',
+      badge: 'bg-cyan-100 text-cyan-700',
+      category: 'Lesson Exam',
+    },
+    {
       id: 'grammar-particle',
       title: 'Ujian Partikel & Tata Bahasa',
       description: 'Fokus 10 soal khusus penggunaan partikel (は, に, で, を, の, と) dan pola kalimat Minna no Nihongo.',

@@ -1,7 +1,18 @@
 import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
 import { PageHeader } from '@/components/shared/PageHeader'
-import { BookOpen, Languages, Type, FileText, BookMarked, Sparkles, GraduationCap, ArrowRight } from 'lucide-react'
+import {
+  BookOpen,
+  Languages,
+  Type,
+  FileText,
+  BookMarked,
+  Sparkles,
+  GraduationCap,
+  ArrowRight,
+  GitCompare,
+  Layers
+} from 'lucide-react'
 
 export default async function LearnPage() {
   const [courses, hCount, ktCount, kjCount, vCount, pCount, gCount] = await Promise.all([
@@ -36,13 +47,60 @@ export default async function LearnPage() {
     <div className="space-y-8 max-w-5xl mx-auto">
       <PageHeader
         title="Pusat Belajar (Learn Hub)"
-        description="Pilih materi yang ingin dipelajari. Semua konten dari Minna no Nihongo tersedia di sini."
+        description="Pilih materi yang ingin dipelajari. Semua konten dari Minna no Nihongo dan panduan interaktif tersedia di sini."
         icon={<BookOpen className="w-8 h-8 text-blue-600" />}
       />
 
+      {/* Special Interactive Learning Portals */}
+      <section className="space-y-3">
+        <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-blue-600" />
+          Panduan Interaktif Khusus
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Link href="/learn/verbs" className="group block">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5 hover:border-blue-400 hover:shadow-md transition-all flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <div className="p-3 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform">
+                  <Layers className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                    Tabel Konjugasi Kata Kerja
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Kuasai 4 bentuk Masu (Kini, Negatif, Lampau, Lampau Negatif) dengan audio.
+                  </p>
+                </div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform shrink-0" />
+            </div>
+          </Link>
+
+          <Link href="/learn/particle/compare" className="group block">
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-5 hover:border-amber-400 hover:shadow-md transition-all flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <div className="p-3 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform">
+                  <GitCompare className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors">
+                    Perbandingan Partikel
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Pahami perbedaan は vs が, に vs で, に vs へ, dan は vs も.
+                  </p>
+                </div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-amber-600 group-hover:translate-x-1 transition-transform shrink-0" />
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Categories Grid */}
       <section>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Kategori Materi</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">Kategori Materi Dasar</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {categories.map(cat => (
             <Link key={cat.title} href={cat.href} className="group block">
@@ -62,9 +120,9 @@ export default async function LearnPage() {
 
       {/* Courses & Lessons */}
       <section>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Courses & Bab</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">Kurikulum Buku & Bab (Minna no Nihongo)</h2>
         {courses.map(course => (
-          <div key={course.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+          <div key={course.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-6">
             <div className="bg-gradient-to-r from-slate-900 to-indigo-900 p-5">
               <h3 className="text-xl font-bold text-white">{course.title}</h3>
               {course.description && <p className="text-sm text-gray-300 mt-1">{course.description}</p>}

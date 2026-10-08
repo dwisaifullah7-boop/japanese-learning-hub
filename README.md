@@ -53,6 +53,7 @@ npm run dev
 | v6.0 | ✅ Selesai | Content Expansion Bab 2 & Katakana Lengkap |
 | v7.0 | ✅ Selesai | Interactive Experience: Home dynamic stats & Kanji/Katakana Canvas |
 | v8.0 | ✅ Selesai | Bab 3 Curriculum Expansion & Modular Exam Presets |
+| v9.0 | ✅ Selesai | Bab 4 Time System, Verbs & Interactive Masu Conjugator |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

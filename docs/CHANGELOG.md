@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v9.0-verbs-and-time-expansion] - Bab 4 Time System, Verbs & Interactive Masu Conjugator - 2026-10-08
+### Added
+- **Lesson Bab 4** Minna no Nihongo — Sistem Waktu (今 ～時 ～分), Hari (何曜日), Rentang Waktu (～から ～まで), dan Pengenalan Kata Kerja Dasar
+- **Halaman Konjugasi Kata Kerja Interaktif** (`/learn/verbs`) — Tabel & kartu interaktif konjugasi 4 bentuk Masu formal (Kini Positif, Negatif, Lampau, & Lampau Negatif) dengan tombol audio pelafalan individual serta filter pencarian instan
+- **Portal Belajar Khusus** di Learn Hub (`/learn`) — Akses cepat ke Tabel Konjugasi Kata Kerja dan Perbandingan Partikel
+- **Kosakata Bab 4** (+16 kata: 起きます, 寝ます, 働きます, 休みます, 勉強します, 終わります, 今, 何時, 何分, 半, 午前, 午後, 朝, 昼, 晩, 毎日)
+- **Pola Tata Bahasa Bab 4** (+4 pola: 今 [Waktu] です, [Kata Kerja] ます/ません/ました/ませんでした, [Waktu] に [KK], [Waktu 1] から [Waktu 2] まで)
+- **Kanji Bab 4** (+8 karakter JLPT N5 Waktu & Dasar: 時, 分, 半, 今, 毎, 何, 午, 前)
+- **Paket Ujian Bab 4** pada Exam Hub (`/exam` & `/api/exam/questions?preset=bab4`)
+- Database total: 46 Hiragana, 46 Katakana, 34 Kanji, 61 Kosakata, 8 Partikel, 17 Pola Tata Bahasa, 4 Lessons
+
 ## [v8.0-curriculum-expansion] - Bab 3 Curriculum Expansion & Modular Exam Presets - 2026-10-08
 ### Added
 - **Lesson Bab 3** Minna no Nihongo — Materi Lokasi & Fasilitas (ここ・そこ・あそこ・どこ, こちら・そちら・あちら・どちら)
