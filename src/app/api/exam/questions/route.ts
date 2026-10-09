@@ -172,6 +172,8 @@ export async function GET(req: Request) {
       bab4: 'Ujian Evaluasi Bab 4 (Waktu & Kata Kerja)',
       bab5: 'Ujian Evaluasi Bab 5 (Gerak & Transportasi)',
       bab6: 'Ujian Evaluasi Bab 6 (Aksi, Objek を & Ajakan)',
+      bab7: 'Ujian Evaluasi Bab 7 (Alat, Pemberian & Sudah/Belum)',
+      bab8: 'Ujian Evaluasi Bab 8 (Kata Sifat い & な)',
     }
 
     return NextResponse.json({

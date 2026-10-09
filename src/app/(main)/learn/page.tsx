@@ -58,19 +58,19 @@ export default async function LearnPage() {
           <Sparkles className="w-5 h-5 text-blue-600" />
           Panduan Interaktif Khusus
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link href="/learn/verbs" className="group block">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5 hover:border-blue-400 hover:shadow-md transition-all flex items-center justify-between h-full">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-4 hover:border-blue-400 hover:shadow-md transition-all flex items-center justify-between h-full">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                <div className="p-2.5 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
                   <Layers className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-sm">
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-xs">
                     Konjugasi Kata Kerja
                   </h3>
-                  <p className="text-[11px] text-gray-600 leading-tight">
-                    4 bentuk Masu formal dengan audio.
+                  <p className="text-[10px] text-gray-600 leading-tight">
+                    4 bentuk Masu formal & audio.
                   </p>
                 </div>
               </div>
@@ -78,18 +78,37 @@ export default async function LearnPage() {
             </div>
           </Link>
 
-          <Link href="/learn/dates" className="group block">
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-5 hover:border-emerald-400 hover:shadow-md transition-all flex items-center justify-between h-full">
+          <Link href="/learn/adjectives" className="group block">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-4 hover:border-purple-400 hover:shadow-md transition-all flex items-center justify-between h-full">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                <div className="p-2.5 bg-purple-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-purple-700 transition-colors text-xs">
+                    Kata Sifat (い & な)
+                  </h3>
+                  <p className="text-[10px] text-gray-600 leading-tight">
+                    Rumus negatif, lampau, & KB.
+                  </p>
+                </div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-purple-600 group-hover:translate-x-1 transition-transform shrink-0" />
+            </div>
+          </Link>
+
+          <Link href="/learn/dates" className="group block">
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-4 hover:border-emerald-400 hover:shadow-md transition-all flex items-center justify-between h-full">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-sm">
+                  <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs">
                     Penanggalan & Kalender
                   </h3>
-                  <p className="text-[11px] text-gray-600 leading-tight">
-                    Pola tanggal 1〜31 dan bulan 1〜12.
+                  <p className="text-[10px] text-gray-600 leading-tight">
+                    Tanggal 1〜31 & bulan 1〜12.
                   </p>
                 </div>
               </div>
@@ -98,17 +117,17 @@ export default async function LearnPage() {
           </Link>
 
           <Link href="/learn/particle/compare" className="group block">
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-5 hover:border-amber-400 hover:shadow-md transition-all flex items-center justify-between h-full">
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 hover:border-amber-400 hover:shadow-md transition-all flex items-center justify-between h-full">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                <div className="p-2.5 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
                   <GitCompare className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-sm">
+                  <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-xs">
                     Perbandingan Partikel
                   </h3>
-                  <p className="text-[11px] text-gray-600 leading-tight">
-                    Perbedaan は vs が, に vs で, dll.
+                  <p className="text-[10px] text-gray-600 leading-tight">
+                    Perbedaan は/が, に/で, dll.
                   </p>
                 </div>
               </div>

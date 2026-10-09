@@ -2,6 +2,18 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v12.0-adjectives-and-gift-expansion] - Bab 7-8 Adjectives, Tools & Giving/Receiving - 2026-10-09
+### Added
+- **Lesson Bab 7** Minna no Nihongo — Sarana / Bahasa (で), Transaksi Memberi & Menerima (あげます・もらいます), serta Keterangan Selesai (もう～ました / まだです)
+- **Lesson Bab 8** Minna no Nihongo — Fondasi Kata Sifat Bahasa Jepang (い形容詞 & な形容詞), Perubahan Negatif (〜くない / 〜じゃありません), Modifikasi Benda, dan Kalimat Tanya Karakteristik (どんな)
+- **Halaman Panduan Kata Sifat Interaktif** (`/learn/adjectives`) — Tabel perbandingan rumus い & な Adjective, konjugasi 4 bentuk waktu/negasi, contoh modifikasi kata benda, filter pencarian instan, dan audio button
+- **Update Learn Hub Portals** (`/learn`) — Grid 4 kolom portal khusus pembelajaran (Konjugasi Kata Kerja, Kata Sifat, Penanggalan & Kalender, Perbandingan Partikel)
+- **Kosakata Bab 7 & 8** (+32 kata: 切ります, 送ります, あげます, もらいます, 貸します, 借ります, 教えます, 習います, はし, ハンサム, きれい, 静か, 賑やか, 有名, 親切, 元気, 便利, 大きい, 小さい, 新しい, 古い, いい, 悪い, 暑い, 寒い, dll.)
+- **Pola Tata Bahasa Bab 7 & 8** (+8 pola: [Alat/Bahasa] で [KK], [Pemberi] は [Penerima] に あげます, [Penerima] は [Pemberi] に もらいます, もう [KK] ましたか, [Benda] は [Sifat] です, Negatif Kata Sifat, [Sifat] [KB], どんな [KB] ですか)
+- **Kanji Bab 7 & 8** (+16 karakter JLPT N5: 切, 友, 貸, 借, 教, 習, 送, 届, 静, 有, 名, 親, 新, 古, 白, 黒)
+- **Paket Ujian Bab 7 & Bab 8** pada Exam Hub (`/exam` & `/api/exam/questions`)
+- Database total: 46 Hiragana, 46 Katakana, 66 Kanji, 125 Kosakata, 8 Partikel, 33 Pola Tata Bahasa, 8 Lessons
+
 ## [v11.0-daily-actions-expansion] - Bab 6 Daily Actions, Direct Object Marker を & Invitations - 2026-10-08
 ### Added
 - **Lesson Bab 6** Minna no Nihongo — Kata Kerja Transitive & Objek Langsung (を), Tempat Berlangsungnya Aksi (で), Ajakan (～ませんか), dan Persetujuan/Penawaran (～ましょう/～ましょうか)
