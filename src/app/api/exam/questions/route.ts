@@ -178,6 +178,8 @@ export async function GET(req: Request) {
       bab10: 'Ujian Evaluasi Bab 10 (Keberadaan います/あります & Posisi Ruang)',
       bab11: 'Ujian Evaluasi Bab 11 (Kata Bilangan, Durasi & Frekuensi)',
       bab12: 'Ujian Evaluasi Bab 12 (Bentuk Lampau & Perbandingan)',
+      bab13: 'Ujian Evaluasi Bab 13 (Keinginan ほしい/～たい & Tujuan Gerak)',
+      bab14: 'Ujian Evaluasi Bab 14 (Konjugasi Bentuk-Te, Permohonan & Continuous)',
     }
 
     return NextResponse.json({

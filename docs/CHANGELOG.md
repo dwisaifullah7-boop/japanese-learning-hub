@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v15.0-te-form-and-desires-expansion] - Bab 13-14 Desires, Motion Purpose & Te-Form Conjugator - 2026-10-12
+### Added
+- **Lesson Bab 13** Minna no Nihongo — Keinginan Benda (欲しい), Keinginan Tindakan (～たい), Tujuan Gerak (へ ～に 行きます/来ます/帰ります), dan Indefinite Pronouns (どこか, なにか)
+- **Lesson Bab 14** Minna no Nihongo — Pengenalan Kata Kerja Bentuk-Te (て形), Permohonan Sopan (～てください), Status Sedang Berlangsung (～ています), dan Penawaran Bantuan (～ましょうか)
+- **Halaman Panduan Konjugasi Bentuk-Te Interaktif** (`/learn/te-form`) — Mnemonic irama lagu hafalan perubahan bunyi huruf akhir Grup 1 (i/chi/ri -> tte, mi/bi/ni -> nde, ki -> ite, gi -> ide, shi -> shite), aturan lepas masu Grup 2, bentuk tetap khusus Grup 3 (shite & kite), penanda perkecualian (ikimasu -> itte), serta audio pronunciation
+- **Update Learn Hub Portals** (`/learn`) — Grid 7 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 13 & 14** (+52 kata: ほしい, 遊びます, 泳ぎます, 迎えます, 疲れます, 出します, 入ります, 出ます, 結婚します, 買い物します, 食事します, 散歩します, 大変, 広い, 狭い, 川, 美術, 週末, 何か, どこか, つけます, 消します, 開けます, 閉めます, 急ぎます, 待ちます, 止めます, 曲がります, 持ちます, 取ります, 手伝います, 呼びます, 話します, 見せます, 教えます, 始めます, 降ります, エアコン, パスポート, 名前, 住所, 地図, 塩, 砂糖, ゆっくり, すぐに, dll.)
+- **Pola Tata Bahasa Bab 13 & 14** (+8 pola: KB が ほしいです, KK-Stem たいです, [Tempat] へ [KK-Stem] に 行きます, どこか/なにか, Te-Form Konjugasi, KK て + ください, KK て + います, KK-Stem + ましょうか)
+- **Kanji Bab 13 & 14** (+12 karakter JLPT N5: 遊, 泳, 疲, 広, 川, 結, 待, 急, 開, 閉, 止, 持, 話, 降)
+- **Paket Ujian Bab 13 & Bab 14** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v14.0-counters-and-comparisons-expansion] - Bab 11-12 Counters, Time Durations, Past Tense & Comparisons - 2026-10-12
 ### Added
 - **Lesson Bab 11** Minna no Nihongo — Kata Bantu Bilangan (Counter ひとつ, ～人, ～台, ～枚, ～本, ～回), Durasi Waktu (～時間, どのくらい), Frekuensi Periode (1か月に2回), dan Pembatas だけ
