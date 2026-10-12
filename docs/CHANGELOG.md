@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v19.0-clauses-and-opinions-expansion] - Bab 21-22 Noun Modifications, Opinions & Clothing Verbs - 2026-10-12
+### Added
+- **Lesson Bab 21** Minna no Nihongo — Opini Pribadi & Asumsi (～と 思います), Kutipan Langsung & Tidak Langsung (～と 言いました), Konfirmasi Persetujuan (～でしょう), serta Topik Pembahasan (～について)
+- **Lesson Bab 22** Minna no Nihongo — Modifikasi Kata Benda dengan Anak Kalimat (連体修飾 / Noun Modification), Penggunaan Partikel が Penanda Pelaku dalam Anak Kalimat, Kata Benda Abstrak (時間 / 約束 / 用事 が あります), serta Verba Mengenakan Pakaian (着る, 履く, 被る, 掛ける)
+- **Halaman Panduan Modifikasi Kata Benda & Opini Interaktif** (`/learn/clauses`) — Panduan sintaksis pembuatan kalimat bertingkat anak kalimat + kata benda, eksplorasi pola opini/kutipan, serta visualisasi 4 kategori kata kerja berpakaian Jepang dengan audio pronunciation
+- **Update Learn Hub Portals** (`/learn`) — Grid 11 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Kamus & Nai, Bentuk Kasual, Penyambung Kalimat, Modifikasi KB & Opini, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 21 & 22** (+52 kata: 思います, 言います, 足ります, 勝ちます, 負けます, 役に立ちます, 無駄, 不便, 同じ, 首相, 大統領, 政治, ニュース, 試合, アルバイト, 意見, 話, 交通, 最近, たぶん, きっと, 本当に, 着ます, はきます, かぶります, かけます, 生まれます, コート, スーツ, セーター, 帽子, 眼鏡, 家賃, 和室, 予定, 約束, 用事, dll.)
+- **Pola Tata Bahasa Bab 21 & 22** (+7 pola: [Futsūkei] と 思います, [Kutipan/Futsūkei] と 言いました, [Futsūkei] でしょう, [Topik] について どう思いますか, [Anak Kalimat] + Kata Benda, Subjek Anak Kalimat (が), [KK Kamus] 時間/約束/用事 があります)
+- **Kanji Bab 21 & 22** (+14 karakter JLPT N5: 思, 言, 勝, 負, 政, 治, 着, 掛, 帽, 約, 束, 定, 賃, 室)
+- **Paket Ujian Bab 21 & Bab 22** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v18.0-plain-form-and-experiences-expansion] - Bab 19-20 Ta-Form, Past Experiences & Plain Form (Futsūkei) - 2026-10-12
 ### Added
 - **Lesson Bab 19** Minna no Nihongo — Kata Kerja Bentuk Lampau Informal (た形 / Ta-kei), Pengalaman Pernah / Belum Pernah (～たことが あります/ありません), Perwakilan Kegiatan Santai (～たり、～たり します), dan Perubahan Status Alami (～くなります / ～になります)

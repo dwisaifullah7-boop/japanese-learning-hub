@@ -186,6 +186,8 @@ export async function GET(req: Request) {
       bab18: 'Ujian Evaluasi Bab 18 (Bentuk Kamus, Kemampuan Dekiru & Hobi)',
       bab19: 'Ujian Evaluasi Bab 19 (Bentuk-Ta, Pengalaman & Tari-tari Shimasu)',
       bab20: 'Ujian Evaluasi Bab 20 (Bentuk Biasa / Futsūkei & Percakapan Kasual)',
+      bab21: 'Ujian Evaluasi Bab 21 (Opini ～と思います & Kutipan ～と言いました)',
+      bab22: 'Ujian Evaluasi Bab 22 (Modifikasi Kata Benda & Kata Kerja Pakaian)',
     }
 
     return NextResponse.json({

@@ -63,6 +63,7 @@ npm run dev
 | v16.0 | ✅ Selesai | Bab 15-16 Permissions, Prohibitions, Sentence Chains & Body Attributes |
 | v17.0 | ✅ Selesai | Bab 17-18 Nai-Form, Dictionary Form, Abilities & Obligations |
 | v18.0 | ✅ Selesai | Bab 19-20 Ta-Form, Past Experiences & Plain Form (Futsūkei) |
+| v19.0 | ✅ Selesai | Bab 21-22 Noun Modifications, Opinions & Clothing Verbs |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)
