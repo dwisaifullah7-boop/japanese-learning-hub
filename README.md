@@ -64,6 +64,7 @@ npm run dev
 | v17.0 | ✅ Selesai | Bab 17-18 Nai-Form, Dictionary Form, Abilities & Obligations |
 | v18.0 | ✅ Selesai | Bab 19-20 Ta-Form, Past Experiences & Plain Form (Futsūkei) |
 | v19.0 | ✅ Selesai | Bab 21-22 Noun Modifications, Opinions & Clothing Verbs |
+| v20.0 | ✅ Selesai | Bab 23-25 Grand Finale N5: Conditionals, Favors & Complete Minna no Nihongo I |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

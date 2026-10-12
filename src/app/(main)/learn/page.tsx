@@ -17,7 +17,8 @@ import {
   Calculator,
   Zap,
   Link2,
-  MessageSquare
+  MessageSquare,
+  GitFork
 } from 'lucide-react'
 
 export default async function LearnPage() {
@@ -63,7 +64,7 @@ export default async function LearnPage() {
           <Sparkles className="w-5 h-5 text-blue-600" />
           Panduan Interaktif Khusus
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12 gap-3">
           <Link href="/learn/verbs" className="group block">
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
               <div className="flex items-center gap-2.5">
@@ -156,6 +157,22 @@ export default async function LearnPage() {
               </div>
               <p className="text-[10px] text-gray-600 leading-tight">
                 Anak kalimat, ~to omoimasu & baju.
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/learn/conditionals" className="group block">
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-3.5 hover:border-emerald-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <GitFork className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs leading-tight">
+                  Pengandaian & Bantuan
+                </h3>
+              </div>
+              <p className="text-[10px] text-gray-600 leading-tight">
+                ~To, ~Tara, ~Temo & Kebaikan.
               </p>
             </div>
           </Link>

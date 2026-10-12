@@ -188,6 +188,9 @@ export async function GET(req: Request) {
       bab20: 'Ujian Evaluasi Bab 20 (Bentuk Biasa / Futsūkei & Percakapan Kasual)',
       bab21: 'Ujian Evaluasi Bab 21 (Opini ～と思います & Kutipan ～と言いました)',
       bab22: 'Ujian Evaluasi Bab 22 (Modifikasi Kata Benda & Kata Kerja Pakaian)',
+      bab23: 'Ujian Evaluasi Bab 23 (Waktu ～とき & Pengandaian Pasti ～と)',
+      bab24: 'Ujian Evaluasi Bab 24 (Transaksi Kebaikan ～てくれます/あげます/もらいます)',
+      bab25: 'Ujian Evaluasi Bab 25 (Pengandaian ～たら & Pertentangan ～ても)',
     }
 
     return NextResponse.json({

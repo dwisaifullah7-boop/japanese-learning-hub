@@ -2,6 +2,19 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v20.0-grand-finale-n5-curriculum] - Bab 23-25 Grand Finale N5: Conditionals, Favors & Complete Minna no Nihongo I - 2026-10-12
+### Added
+- **Lesson Bab 23** Minna no Nihongo — Hubungan Waktu & Kondisi (～とき - Toki), Hubungan Kondisional Pasti Alami / Mesin (～と - To), serta Arah Navigasi & Persimpangan (を 曲がります)
+- **Lesson Bab 24** Minna no Nihongo — Transaksi Bantuan & Jasa (授受表現 - Juju Hyougen: ～てくれます, ～てもらいます, ～てあげます), Hubungan Kebaikan Hati dalam Keluarga & Sahabat
+- **Lesson Bab 25** Minna no Nihongo — Pengandaian Bersyarat (～たら - Tara), Pengandaian Walaupun / Pertentangan (～ても / ～でも - Temo), serta Puncak Kelulusan Kurikulum Minna no Nihongo I (JLPT N5)
+- **Halaman Panduan Pengandaian & Transaksi Kebaikan Interaktif** (`/learn/conditionals`) — Eksplorasi interaktif 4 pola pengandaian Jepang (Tara, To, Toki, Temo), visualisasi alur transaksi kebaikan (Kuremasu vs Moraimasu vs Agemasu), serta ringkasan kelulusan JLPT N5 dengan audio pronunciation
+- **Update Learn Hub Portals** (`/learn`) — Grid 12 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Kamus & Nai, Bentuk Kasual, Penyambung Kalimat, Modifikasi KB & Opini, Pengandaian & Jasa, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 23, 24, & 25** (+66 kata: 聞きます, 回します, 引きます, 変えます, 触ります, 出ます, 動きます, 止まります, 渡ります, 交差点, 信号, 角, 橋, 駐車場, 直します, 連れて行きます, 連れて来ます, 送ります, 紹介します, 案内します, 説明します, おじいさん, おばあさん, 準備, 意味, 菓子, 全部, 自分で, 考えます, 着きます, 取ります, 足ります, 頑張ります, 田舎, チャンス, 億, dll.)
+- **Pola Tata Bahasa Bab 23, 24, & 25** (+9 pola: [KK Kamus/Ta/Nai + とき], [KK Kamus + と], [KB を Tempat + 動詞 移動], KK て + あげます, KK て + もらいます, [Orang] が KK て + くれます, [KK/Sifat/KB] たら, [KK/Sifat/KB] ても, [KB + が あります/できます])
+- **Kanji Bab 23, 24, & 25** (+18 karakter JLPT N5: 回, 引, 変, 触, 渡, 橋, 角, 紹, 介, 案, 内, 説, 明, 考, 着, 億, 準, 備)
+- **Paket Ujian Bab 23, 24, & Bab 25** pada Exam Hub (`/exam` & `/api/exam/questions`)
+- **Pencapaian Kurikulum**: 100% Seluruh Bab Minna no Nihongo I (Bab 1 s.d. Bab 25 / JLPT N5) selesai diimplementasikan secara komprehensif!
+
 ## [v19.0-clauses-and-opinions-expansion] - Bab 21-22 Noun Modifications, Opinions & Clothing Verbs - 2026-10-12
 ### Added
 - **Lesson Bab 21** Minna no Nihongo — Opini Pribadi & Asumsi (～と 思います), Kutipan Langsung & Tidak Langsung (～と 言いました), Konfirmasi Persetujuan (～でしょう), serta Topik Pembahasan (～について)
