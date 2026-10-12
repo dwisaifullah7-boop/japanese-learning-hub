@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v18.0-plain-form-and-experiences-expansion] - Bab 19-20 Ta-Form, Past Experiences & Plain Form (Futsūkei) - 2026-10-12
+### Added
+- **Lesson Bab 19** Minna no Nihongo — Kata Kerja Bentuk Lampau Informal (た形 / Ta-kei), Pengalaman Pernah / Belum Pernah (～たことが あります/ありません), Perwakilan Kegiatan Santai (～たり、～たり します), dan Perubahan Status Alami (～くなります / ～になります)
+- **Lesson Bab 20** Minna no Nihongo — Bentuk Biasa / Kasual (普通形 - Futsūkei), Tata Cara Percakapan Akrab Teman & Keluarga, Perubahan Kopula (だ, じゃない, だった, じゃなかった), Respon Kasual (うん / ううん), serta Intonasi Tanya Tanpa Partikel か
+- **Halaman Panduan Bentuk Biasa & Pengalaman Interaktif** (`/learn/plain-form`) — Matriks perbandingan 4 bentuk waktu antara Bahasa Sopan (Teineigo) vs Bentuk Biasa (Futsūkei) untuk Kata Kerja, Kata Sifat-i, Kata Sifat-na, dan Kata Benda; panduan pola pengalaman hidup Bab 19; etika dan fitur percakapan santai
+- **Update Learn Hub Portals** (`/learn`) — Grid 10 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Kamus & Nai, Bentuk Kasual, Penyambung Kalimat, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 19 & 20** (+42 kata: 登ります, 泊まります, 掃除します, 洗濯します, 練習します, なります, 眠い, 強い, 弱い, 調子, ゴルフ, 相撲, お茶, 日, 一度, 一度も, だんだん, もうすぐ, 乾杯, 要ります, 調べます, 直します, 修理します, 電話します, 僕, 君, うん, ううん, サラリーマン, 言葉, 物価, 着物, ビザ, 初め, 終わり, こっち, そっち, あっち, どっち, みんなで, けど, dll.)
+- **Pola Tata Bahasa Bab 19 & 20** (+7 pola: Ta-Form Konjugasi, KK た + ことが あります, KK1 たり KK2 たり します, Sifat/KB + なります, Futsūkei Konjugasi Matriks, Intonasi Tanya Kasual, Futsūkei + けど)
+- **Kanji Bab 19 & 20** (+12 karakter JLPT N5: 登, 泊, 掃, 除, 練, 習, 要, 調, 直, 修, 僕, 君)
+- **Paket Ujian Bab 19 & Bab 20** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v17.0-dictionary-and-nai-forms-expansion] - Bab 17-18 Nai-Form, Dictionary Form, Abilities & Obligations - 2026-10-12
 ### Added
 - **Lesson Bab 17** Minna no Nihongo — Kata Kerja Bentuk Negatif Informal (ない形), Permohonan Negatif Santun (～ないでください), Kewajiban Mutlak (～なければなりません), dan Tidak Perlu / Fleksibilitas (～なくてもいいです)

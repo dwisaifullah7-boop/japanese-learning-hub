@@ -184,6 +184,8 @@ export async function GET(req: Request) {
       bab16: 'Ujian Evaluasi Bab 16 (Aksi Berantai, Te-kara & Penggabungan Sifat)',
       bab17: 'Ujian Evaluasi Bab 17 (Bentuk-Nai, Keharusan & Larangan Santun)',
       bab18: 'Ujian Evaluasi Bab 18 (Bentuk Kamus, Kemampuan Dekiru & Hobi)',
+      bab19: 'Ujian Evaluasi Bab 19 (Bentuk-Ta, Pengalaman & Tari-tari Shimasu)',
+      bab20: 'Ujian Evaluasi Bab 20 (Bentuk Biasa / Futsūkei & Percakapan Kasual)',
     }
 
     return NextResponse.json({
