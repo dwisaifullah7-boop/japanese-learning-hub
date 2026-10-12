@@ -12,7 +12,8 @@ import {
   ArrowRight,
   GitCompare,
   Layers,
-  Calendar
+  Calendar,
+  Compass
 } from 'lucide-react'
 
 export default async function LearnPage() {
@@ -58,80 +59,84 @@ export default async function LearnPage() {
           <Sparkles className="w-5 h-5 text-blue-600" />
           Panduan Interaktif Khusus
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           <Link href="/learn/verbs" className="group block">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-4 hover:border-blue-400 hover:shadow-md transition-all flex items-center justify-between h-full">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Layers className="w-5 h-5" />
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Layers className="w-4 h-4" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-xs">
-                    Konjugasi Kata Kerja
-                  </h3>
-                  <p className="text-[10px] text-gray-600 leading-tight">
-                    4 bentuk Masu formal & audio.
-                  </p>
-                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-xs leading-tight">
+                  Konjugasi Kata Kerja
+                </h3>
               </div>
-              <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform shrink-0" />
+              <p className="text-[10px] text-gray-600 leading-tight">
+                4 bentuk Masu formal & audio.
+              </p>
             </div>
           </Link>
 
           <Link href="/learn/adjectives" className="group block">
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-4 hover:border-purple-400 hover:shadow-md transition-all flex items-center justify-between h-full">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-purple-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Sparkles className="w-5 h-5" />
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-3.5 hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-purple-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Sparkles className="w-4 h-4" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-purple-700 transition-colors text-xs">
-                    Kata Sifat (い & な)
-                  </h3>
-                  <p className="text-[10px] text-gray-600 leading-tight">
-                    Rumus negatif, lampau, & KB.
-                  </p>
-                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-purple-700 transition-colors text-xs leading-tight">
+                  Kata Sifat (い & な)
+                </h3>
               </div>
-              <ArrowRight className="w-4 h-4 text-purple-600 group-hover:translate-x-1 transition-transform shrink-0" />
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Rumus negatif, lampau, & KB.
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/learn/positions" className="group block">
+            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl p-3.5 hover:border-cyan-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-cyan-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Compass className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-cyan-700 transition-colors text-xs leading-tight">
+                  Posisi Ruang
+                </h3>
+              </div>
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Preposisi & います/あります.
+              </p>
             </div>
           </Link>
 
           <Link href="/learn/dates" className="group block">
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-4 hover:border-emerald-400 hover:shadow-md transition-all flex items-center justify-between h-full">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Calendar className="w-5 h-5" />
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-3.5 hover:border-emerald-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Calendar className="w-4 h-4" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs">
-                    Penanggalan & Kalender
-                  </h3>
-                  <p className="text-[10px] text-gray-600 leading-tight">
-                    Tanggal 1〜31 & bulan 1〜12.
-                  </p>
-                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs leading-tight">
+                  Kalender & Tanggal
+                </h3>
               </div>
-              <ArrowRight className="w-4 h-4 text-emerald-600 group-hover:translate-x-1 transition-transform shrink-0" />
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Tanggal 1〜31 & bulan 1〜12.
+              </p>
             </div>
           </Link>
 
           <Link href="/learn/particle/compare" className="group block">
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 hover:border-amber-400 hover:shadow-md transition-all flex items-center justify-between h-full">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <GitCompare className="w-5 h-5" />
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-3.5 hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <GitCompare className="w-4 h-4" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-xs">
-                    Perbandingan Partikel
-                  </h3>
-                  <p className="text-[10px] text-gray-600 leading-tight">
-                    Perbedaan は/が, に/で, dll.
-                  </p>
-                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-xs leading-tight">
+                  Bandingkan Partikel
+                </h3>
               </div>
-              <ArrowRight className="w-4 h-4 text-amber-600 group-hover:translate-x-1 transition-transform shrink-0" />
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Perbedaan は/が, に/で, dll.
+              </p>
             </div>
           </Link>
         </div>

@@ -2,6 +2,18 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v13.0-existence-and-preferences-expansion] - Bab 9-10 Preferences, Abilities, Imasu vs Arimasu & Spatial Positions - 2026-10-10
+### Added
+- **Lesson Bab 9** Minna no Nihongo — Kesukaan & Kemampuan (が 好き・嫌い・上手・下手), Pemahaman & Kepemilikan (わかります・あります), serta Alasan (から)
+- **Lesson Bab 10** Minna no Nihongo — Keberadaan Makhluk Bernyawa vs Benda Mati (います vs あります), Posisi Ruang (上・下・前・後ろ・右・左・中・隣・間), dan Partikel Pendaftar Contoh (や・など)
+- **Halaman Panduan Posisi Ruang & Keberadaan Interaktif** (`/learn/positions`) — Diagram visual interaktif 10 posisi ruang, perbedaan prinsip います vs あります, contoh kalimat kontekstual, dan audio button
+- **Update Learn Hub Portals** (`/learn`) — Grid 5 kolom portal khusus pembelajaran (Konjugasi Kata Kerja, Kata Sifat, Posisi Ruang, Penanggalan & Kalender, Perbandingan Partikel)
+- **Kosakata Bab 9 & 10** (+32 kata: 好き, 嫌い, 上手, 下手, わかります, あります, 料理, 飲み物, スポーツ, 音楽, います, 男の人, 女の人, 男の子, 女の子, 犬, 猫, 木, 上, 下, 前, 後ろ, 右, 左, 隣, 間, dll.)
+- **Pola Tata Bahasa Bab 9 & 10** (+8 pola: が 好き/嫌い, が 上手/下手, が わかります/あります, [Alasan] から, [Tempat] に [Subjek] が います/あります, [Subjek] は [Tempat] に います/あります, [Acuan] の [Posisi] に, や/など)
+- **Kanji Bab 9 & 10** (+16 karakter JLPT N5: 好, 歌, 音, 楽, 野, 球, 料, 理, 犬, 猫, 男, 女, 子, 右, 左, 間)
+- **Paket Ujian Bab 9 & Bab 10** pada Exam Hub (`/exam` & `/api/exam/questions`)
+- Database total: 46 Hiragana, 46 Katakana, 82 Kanji, 157 Kosakata, 8 Partikel, 41 Pola Tata Bahasa, 10 Lessons (Lengkap Bab 1〜10)
+
 ## [v12.0-adjectives-and-gift-expansion] - Bab 7-8 Adjectives, Tools & Giving/Receiving - 2026-10-09
 ### Added
 - **Lesson Bab 7** Minna no Nihongo — Sarana / Bahasa (で), Transaksi Memberi & Menerima (あげます・もらいます), serta Keterangan Selesai (もう～ました / まだです)
