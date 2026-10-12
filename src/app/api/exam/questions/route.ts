@@ -176,6 +176,8 @@ export async function GET(req: Request) {
       bab8: 'Ujian Evaluasi Bab 8 (Kata Sifat い & な)',
       bab9: 'Ujian Evaluasi Bab 9 (Preferensi, Kemampuan & Alasan から)',
       bab10: 'Ujian Evaluasi Bab 10 (Keberadaan います/あります & Posisi Ruang)',
+      bab11: 'Ujian Evaluasi Bab 11 (Kata Bilangan, Durasi & Frekuensi)',
+      bab12: 'Ujian Evaluasi Bab 12 (Bentuk Lampau & Perbandingan)',
     }
 
     return NextResponse.json({

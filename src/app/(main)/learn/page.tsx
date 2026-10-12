@@ -13,7 +13,8 @@ import {
   GitCompare,
   Layers,
   Calendar,
-  Compass
+  Compass,
+  Calculator
 } from 'lucide-react'
 
 export default async function LearnPage() {
@@ -59,7 +60,7 @@ export default async function LearnPage() {
           <Sparkles className="w-5 h-5 text-blue-600" />
           Panduan Interaktif Khusus
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <Link href="/learn/verbs" className="group block">
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
               <div className="flex items-center gap-2.5">
@@ -104,6 +105,22 @@ export default async function LearnPage() {
               </div>
               <p className="text-[10px] text-gray-600 leading-tight">
                 Preposisi & います/あります.
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/learn/counters" className="group block">
+            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-200 rounded-2xl p-3.5 hover:border-indigo-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-indigo-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Calculator className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-indigo-700 transition-colors text-xs leading-tight">
+                  Kata Bilangan
+                </h3>
+              </div>
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Hitungan 〜つ, 〜人, 〜台, 〜枚.
               </p>
             </div>
           </Link>

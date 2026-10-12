@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v14.0-counters-and-comparisons-expansion] - Bab 11-12 Counters, Time Durations, Past Tense & Comparisons - 2026-10-12
+### Added
+- **Lesson Bab 11** Minna no Nihongo — Kata Bantu Bilangan (Counter ひとつ, ～人, ～台, ～枚, ～本, ～回), Durasi Waktu (～時間, どのくらい), Frekuensi Periode (1か月に2回), dan Pembatas だけ
+- **Lesson Bab 12** Minna no Nihongo — Bentuk Lampau Kata Sifat & Benda (でした, かった), Musim & Cuaca (春夏秋冬, 天気, 雨, 雪), serta Pola Perbandingan (より, どちら, 一番)
+- **Halaman Panduan Kata Bantu Bilangan Interaktif** (`/learn/counters`) — Filter kategori counter (Hitungan Umum, Orang, Benda Pipih, Kendaraan/Mesin, Benda Silindris/Panjang, Frekuensi), visualisasi bacaan khusus & rendaku, rangkuman satuan durasi waktu, serta dukungan audio pronunciation
+- **Update Learn Hub Portals** (`/learn`) — Grid 6 kolom portal pembelajaran interaktif (Konjugasi Kata Kerja, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 11 & 12** (+52 kata: ひとつ〜とお, ひとり, ふたり, ～人, ～台, ～枚, ～回, どのくらい, 兄弟, 両親, 簡単, 近い, 遠い, 早い, 遅い, 多い, 少ない, 暖かい, 涼しい, 甘い, 辛い, 重い, 軽い, 季節, 春, 夏, 秋, 冬, 天気, 雨, 雪, 曇り, どちら, 一番, dll.)
+- **Pola Tata Bahasa Bab 11 & 12** (+9 pola: KB を [Counter] KK, [Jangka Waktu] に [Frekuensi] 回, から〜まで〜で〜かかります, [Angka] だけ, KB/Na-Adj でした/ではありませんでした, I-Adj かった/くなかったです, KB1 は KB2 より [Sifat], KB1 と KB2 と どちらが [Sifat], [Kategori] の中で 何/どこ/だれ/いつ が いちばん [Sifat])
+- **Kanji Bab 11 & 12** (+14 karakter JLPT N5: 台, 枚, 兄, 弟, 姉, 妹, 春, 夏, 秋, 冬, 雨, 雪, 海, 界)
+- **Paket Ujian Bab 11 & Bab 12** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v13.0-existence-and-preferences-expansion] - Bab 9-10 Preferences, Abilities, Imasu vs Arimasu & Spatial Positions - 2026-10-10
 ### Added
 - **Lesson Bab 9** Minna no Nihongo — Kesukaan & Kemampuan (が 好き・嫌い・上手・下手), Pemahaman & Kepemilikan (わかります・あります), serta Alasan (から)

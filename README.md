@@ -58,6 +58,7 @@ npm run dev
 | v11.0 | ✅ Selesai | Bab 6 Daily Actions, Direct Object Marker を & Invitations |
 | v12.0 | ✅ Selesai | Bab 7-8 Adjectives, Tools & Giving/Receiving |
 | v13.0 | ✅ Selesai | Bab 9-10 Preferences, Abilities, Imasu vs Arimasu & Spatial Positions |
+| v14.0 | ✅ Selesai | Bab 11-12 Counters, Time Durations, Past Tense & Comparisons |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)
