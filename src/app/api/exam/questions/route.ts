@@ -180,6 +180,8 @@ export async function GET(req: Request) {
       bab12: 'Ujian Evaluasi Bab 12 (Bentuk Lampau & Perbandingan)',
       bab13: 'Ujian Evaluasi Bab 13 (Keinginan ほしい/～たい & Tujuan Gerak)',
       bab14: 'Ujian Evaluasi Bab 14 (Konjugasi Bentuk-Te, Permohonan & Continuous)',
+      bab15: 'Ujian Evaluasi Bab 15 (Izin, Larangan & Keadaan/Status ～ています)',
+      bab16: 'Ujian Evaluasi Bab 16 (Aksi Berantai, Te-kara & Penggabungan Sifat)',
     }
 
     return NextResponse.json({

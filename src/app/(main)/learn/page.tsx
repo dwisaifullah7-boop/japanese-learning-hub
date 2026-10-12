@@ -15,7 +15,8 @@ import {
   Calendar,
   Compass,
   Calculator,
-  Zap
+  Zap,
+  Link2
 } from 'lucide-react'
 
 export default async function LearnPage() {
@@ -61,7 +62,7 @@ export default async function LearnPage() {
           <Sparkles className="w-5 h-5 text-blue-600" />
           Panduan Interaktif Khusus
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-3">
           <Link href="/learn/verbs" className="group block">
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
               <div className="flex items-center gap-2.5">
@@ -89,7 +90,23 @@ export default async function LearnPage() {
                 </h3>
               </div>
               <p className="text-[10px] text-gray-600 leading-tight">
-                Grup 1/2/3, irama lagu & permohonan.
+                Grup 1/2/3, irama & permohonan.
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/learn/connectors" className="group block">
+            <div className="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl p-3.5 hover:border-teal-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-teal-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
+                  <Link2 className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-teal-700 transition-colors text-xs leading-tight">
+                  Penyambung Kalimat
+                </h3>
+              </div>
+              <p className="text-[10px] text-gray-600 leading-tight">
+                Aksi berantai, izin & deskripsi.
               </p>
             </div>
           </Link>

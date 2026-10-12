@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v16.0-connectors-and-permissions-expansion] - Bab 15-16 Permissions, Prohibitions, Sentence Chains & Body Attributes - 2026-10-12
+### Added
+- **Lesson Bab 15** Minna no Nihongo — Izin (～てもいいですか), Larangan Tegas (～てはいけません), dan Status/Keadaan Berkelanjutan (～ています: Menikah, Tinggal di suatu tempat, Mengetahui / Kenal)
+- **Lesson Bab 16** Minna no Nihongo — Urutan Aksi Berantai Kronologis (～て、～て、... ます), Urutan Mutlak Prasyarat (～てから), Penggabungan Kata Sifat (I-Adj ～くて / Na-Adj & KB ～で), Deskripsi Karakteristik Fisik (KB1 は KB2 が [Sifat]), dan Petunjuk Rute/Cara (どうやって)
+- **Halaman Panduan Penyambung Kalimat & Izin Interaktif** (`/learn/connectors`) — Penjelasan mendalam 5 topik penghubung kalimat, formula struktur, contoh kalimat kontekstual dengan audio pronunciation, pembedahan pola kalimat, dan catatan aturan sosial
+- **Update Learn Hub Portals** (`/learn`) — Grid 8 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Penyambung Kalimat, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 15 & 16** (+51 kata: 置きます, 作ります, 売ります, 知ります, 住みます, 研究します, 知っています, 知りません, 住んでいます, 資料, カタログ, 時刻表, 服, 製品, ソフト, 専門, 歯医者, 床屋, 独身, 特に, 乗ります, 降ります, 乗り換えます, 浴びます, 入れます, 下ろします, 押します, 若い, 長い, 短い, 明るい, 暗い, 背が高い, 頭がいい, 体, 頭, 顔, 目, 耳, 口, 歯, おなか, 足, 緑, お寺, 神社, どうやって, dll.)
+- **Pola Tata Bahasa Bab 15 & 16** (+9 pola: KK て + もいいですか, KK て + はいけません, KK て + います (Status Keadaan), [Tempat] で [Barang] を 売っています, KK1 て、KK2 て、... KK, KK1 てから KK2, I-Adj ～くて / Na-Adj & KB ～で, KB1 は KB2 が [Sifat], どうやって [Tempat] へ 行きますか)
+- **Kanji Bab 15 & 16** (+11 karakter JLPT N5: 置, 作, 売, 知, 住, 服, 乗, 体, 頭, 顔, 目, 耳, 口, 足)
+- **Paket Ujian Bab 15 & Bab 16** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v15.0-te-form-and-desires-expansion] - Bab 13-14 Desires, Motion Purpose & Te-Form Conjugator - 2026-10-12
 ### Added
 - **Lesson Bab 13** Minna no Nihongo — Keinginan Benda (欲しい), Keinginan Tindakan (～たい), Tujuan Gerak (へ ～に 行きます/来ます/帰ります), dan Indefinite Pronouns (どこか, なにか)
