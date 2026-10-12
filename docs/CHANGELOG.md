@@ -2,6 +2,17 @@
 
 Semua perubahan penting pada proyek ini akan dicatat di file ini.
 
+## [v17.0-dictionary-and-nai-forms-expansion] - Bab 17-18 Nai-Form, Dictionary Form, Abilities & Obligations - 2026-10-12
+### Added
+- **Lesson Bab 17** Minna no Nihongo — Kata Kerja Bentuk Negatif Informal (ない形), Permohonan Negatif Santun (～ないでください), Kewajiban Mutlak (～なければなりません), dan Tidak Perlu / Fleksibilitas (～なくてもいいです)
+- **Lesson Bab 18** Minna no Nihongo — Kata Kerja Bentuk Kamus (辞書形 / Jisho-kei), Potensi & Kemampuan Melakukan Sesuatu (～ことが できます), Hobi Kegiatan (趣味は～ことです), serta Urutan Sebelum (～まえに)
+- **Halaman Panduan Konjugasi Bentuk Kamus & Nai Interaktif** (`/learn/forms`) — Komparasi langsung 3 grup kata kerja, pergeseran baris vokal (i ➔ u untuk Kamus, i ➔ a+nai untuk Negatif), penanganan pengecualian (kaimasu ➔ kawanai, kimasu ➔ kuru / konai), mode filter tampilan, dan audio pronunciation
+- **Update Learn Hub Portals** (`/learn`) — Grid 9 kolom portal pembelajaran interaktif (Konjugasi Masu, Bentuk-Te, Kamus & Nai, Penyambung Kalimat, Kata Sifat, Posisi Ruang, Kata Bilangan, Kalender & Tanggal, Bandingkan Partikel)
+- **Kosakata Bab 17 & 18** (+47 kata: 覚えます, 忘れます, 無くします, 払います, 返します, 出かけます, 脱ぎます, 持って行きます, 持って来ます, 心配します, 残業します, 出張します, 薬, 保険証, 熱, 病気, 大切, 大丈夫, 危ない, までに, できます, 洗います, 弾きます, 歌います, 集めます, 捨てます, 換えます, 運転します, 予約します, 現金, 趣味, 日記, お祈り, 課長, 部長, 社長, 動物, 馬, インターネット, なかなか, ぜひ, dll.)
+- **Pola Tata Bahasa Bab 17 & 18** (+8 pola: Nai-Form Konjugasi, KK ない + でください, KK なければなりません, KK なくてもいいです, Jisho-kei Konjugasi, [KK Kamus + こと] が できます, 趣味は [KK Kamus + こと] です, [KK Kamus / KB の] まえに)
+- **Kanji Bab 17 & 18** (+13 karakter JLPT N5: 覚, 忘, 払, 返, 薬, 危, 洗, 弾, 集, 捨, 換, 運, 転)
+- **Paket Ujian Bab 17 & Bab 18** pada Exam Hub (`/exam` & `/api/exam/questions`)
+
 ## [v16.0-connectors-and-permissions-expansion] - Bab 15-16 Permissions, Prohibitions, Sentence Chains & Body Attributes - 2026-10-12
 ### Added
 - **Lesson Bab 15** Minna no Nihongo — Izin (～てもいいですか), Larangan Tegas (～てはいけません), dan Status/Keadaan Berkelanjutan (～ています: Menikah, Tinggal di suatu tempat, Mengetahui / Kenal)

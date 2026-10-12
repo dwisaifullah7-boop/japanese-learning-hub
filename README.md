@@ -61,6 +61,7 @@ npm run dev
 | v14.0 | ✅ Selesai | Bab 11-12 Counters, Time Durations, Past Tense & Comparisons |
 | v15.0 | ✅ Selesai | Bab 13-14 Desires, Motion Purpose & Te-Form Conjugator |
 | v16.0 | ✅ Selesai | Bab 15-16 Permissions, Prohibitions, Sentence Chains & Body Attributes |
+| v17.0 | ✅ Selesai | Bab 17-18 Nai-Form, Dictionary Form, Abilities & Obligations |
 
 ## 📖 Dokumentasi
 - [Changelog](docs/CHANGELOG.md)

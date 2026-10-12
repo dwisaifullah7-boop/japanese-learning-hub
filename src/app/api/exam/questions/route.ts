@@ -182,6 +182,8 @@ export async function GET(req: Request) {
       bab14: 'Ujian Evaluasi Bab 14 (Konjugasi Bentuk-Te, Permohonan & Continuous)',
       bab15: 'Ujian Evaluasi Bab 15 (Izin, Larangan & Keadaan/Status ～ています)',
       bab16: 'Ujian Evaluasi Bab 16 (Aksi Berantai, Te-kara & Penggabungan Sifat)',
+      bab17: 'Ujian Evaluasi Bab 17 (Bentuk-Nai, Keharusan & Larangan Santun)',
+      bab18: 'Ujian Evaluasi Bab 18 (Bentuk Kamus, Kemampuan Dekiru & Hobi)',
     }
 
     return NextResponse.json({
