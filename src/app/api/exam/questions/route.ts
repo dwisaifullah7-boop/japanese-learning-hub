@@ -12,7 +12,13 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url)
     const preset = searchParams.get('preset') || 'comprehensive'
     const countParam = searchParams.get('count')
-    const totalTarget = countParam ? parseInt(countParam, 10) : preset === 'comprehensive' ? 15 : 10
+    const totalTarget = countParam
+      ? parseInt(countParam, 10)
+      : preset === 'kanji-vocab'
+      ? 20
+      : preset === 'grammar-particle' || preset === 'comprehensive'
+      ? 15
+      : 10
 
     // Fetch candidate materials based on preset
     let rawVocab: any[] = []

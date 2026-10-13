@@ -175,7 +175,7 @@ export default async function DashboardPage() {
                   Modul Belajar (Learn)
                 </h4>
                 <p className="text-xs text-gray-500">
-                  Pelajari Minna no Nihongo Bab 1, Kanji, Hiragana, Katakana, & Partikel.
+                  Pelajari 25 Bab Lengkap Minna no Nihongo (JLPT N5), 175 Kanji, serta 12 Panduan Interaktif.
                 </p>
               </div>
             </Link>
