@@ -50,6 +50,129 @@ export default async function LearnPage() {
     { title: 'Grammar', icon: <GraduationCap className="w-6 h-6" />, description: `${gCount} pola kalimat`, href: '/learn/grammar', color: 'emerald' },
   ]
 
+  const interactiveGuides = [
+    {
+      title: 'Konjugasi Masu',
+      badge: 'Bab 4–6',
+      description: '4 bentuk Masu formal, waktu & audio pelafalan.',
+      href: '/learn/verbs',
+      icon: <Layers className="w-5 h-5" />,
+      borderClass: 'border-blue-200 hover:border-blue-400',
+      bgClass: 'bg-gradient-to-br from-blue-50/80 to-indigo-50/30',
+      iconBg: 'bg-blue-600',
+    },
+    {
+      title: 'Bentuk-Te (て形)',
+      badge: 'Bab 14',
+      description: 'Aturan grup 1/2/3, irama hafalan & permohonan.',
+      href: '/learn/te-form',
+      icon: <Zap className="w-5 h-5" />,
+      borderClass: 'border-violet-200 hover:border-violet-400',
+      bgClass: 'bg-gradient-to-br from-violet-50/80 to-purple-50/30',
+      iconBg: 'bg-violet-600',
+    },
+    {
+      title: 'Kamus & Nai',
+      badge: 'Bab 17–18',
+      description: 'Jisho-kei (kamus) & Nai-kei (negatif kasual).',
+      href: '/learn/forms',
+      icon: <Sparkles className="w-5 h-5" />,
+      borderClass: 'border-amber-200 hover:border-amber-400',
+      bgClass: 'bg-gradient-to-br from-amber-50/80 to-orange-50/30',
+      iconBg: 'bg-amber-600',
+    },
+    {
+      title: 'Bentuk Kasual',
+      badge: 'Bab 19–20',
+      description: 'Futsūkei percakapan santai & pengalaman hidup.',
+      href: '/learn/plain-form',
+      icon: <MessageSquare className="w-5 h-5" />,
+      borderClass: 'border-rose-200 hover:border-rose-400',
+      bgClass: 'bg-gradient-to-br from-rose-50/80 to-pink-50/30',
+      iconBg: 'bg-rose-600',
+    },
+    {
+      title: 'Penyambung Kalimat',
+      badge: 'Bab 15–16',
+      description: 'Aksi berantai, izin, larangan & deskripsi sifat.',
+      href: '/learn/connectors',
+      icon: <Link2 className="w-5 h-5" />,
+      borderClass: 'border-teal-200 hover:border-teal-400',
+      bgClass: 'bg-gradient-to-br from-teal-50/80 to-emerald-50/30',
+      iconBg: 'bg-teal-600',
+    },
+    {
+      title: 'Modifikasi KB & Opini',
+      badge: 'Bab 21–22',
+      description: 'Anak kalimat, ~to omoimasu & kata kerja baju.',
+      href: '/learn/clauses',
+      icon: <FileText className="w-5 h-5" />,
+      borderClass: 'border-sky-200 hover:border-sky-400',
+      bgClass: 'bg-gradient-to-br from-sky-50/80 to-blue-50/30',
+      iconBg: 'bg-sky-600',
+    },
+    {
+      title: 'Pengandaian & Bantuan',
+      badge: 'Bab 23–25',
+      description: 'Rumus ~To, ~Tara, ~Temo & transaksi kebaikan.',
+      href: '/learn/conditionals',
+      icon: <GitFork className="w-5 h-5" />,
+      borderClass: 'border-emerald-200 hover:border-emerald-400',
+      bgClass: 'bg-gradient-to-br from-emerald-50/80 to-teal-50/30',
+      iconBg: 'bg-emerald-600',
+    },
+    {
+      title: 'Kata Sifat (い & な)',
+      badge: 'Bab 8 & 12',
+      description: 'Rumus negatif, lampau, & modifikasi kata benda.',
+      href: '/learn/adjectives',
+      icon: <Sparkles className="w-5 h-5" />,
+      borderClass: 'border-purple-200 hover:border-purple-400',
+      bgClass: 'bg-gradient-to-br from-purple-50/80 to-fuchsia-50/30',
+      iconBg: 'bg-purple-600',
+    },
+    {
+      title: 'Posisi Ruang',
+      badge: 'Bab 10',
+      description: 'Preposisi tempat & keberadaan います/あります.',
+      href: '/learn/positions',
+      icon: <Compass className="w-5 h-5" />,
+      borderClass: 'border-cyan-200 hover:border-cyan-400',
+      bgClass: 'bg-gradient-to-br from-cyan-50/80 to-blue-50/30',
+      iconBg: 'bg-cyan-600',
+    },
+    {
+      title: 'Kata Bilangan',
+      badge: 'Bab 11',
+      description: 'Hitungan unit 〜つ, 〜人, 〜台, 〜枚, dll.',
+      href: '/learn/counters',
+      icon: <Calculator className="w-5 h-5" />,
+      borderClass: 'border-indigo-200 hover:border-indigo-400',
+      bgClass: 'bg-gradient-to-br from-indigo-50/80 to-violet-50/30',
+      iconBg: 'bg-indigo-600',
+    },
+    {
+      title: 'Kalender & Tanggal',
+      badge: 'Bab 5',
+      description: 'Penanggalan 1〜31, bulan, hari & waktu.',
+      href: '/learn/dates',
+      icon: <Calendar className="w-5 h-5" />,
+      borderClass: 'border-lime-200 hover:border-lime-400',
+      bgClass: 'bg-gradient-to-br from-lime-50/80 to-emerald-50/30',
+      iconBg: 'bg-lime-600',
+    },
+    {
+      title: 'Bandingkan Partikel',
+      badge: 'Sintaksis',
+      description: 'Komparasi mendalam は vs が, に vs で, dll.',
+      href: '/learn/particle/compare',
+      icon: <GitCompare className="w-5 h-5" />,
+      borderClass: 'border-orange-200 hover:border-orange-400',
+      bgClass: 'bg-gradient-to-br from-orange-50/80 to-amber-50/30',
+      iconBg: 'bg-orange-600',
+    },
+  ]
+
   return (
     <div className="space-y-8 max-w-5xl mx-auto">
       <PageHeader
@@ -59,203 +182,41 @@ export default async function LearnPage() {
       />
 
       {/* Special Interactive Learning Portals */}
-      <section className="space-y-3">
-        <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-blue-600" />
-          Panduan Interaktif Khusus
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12 gap-3">
-          <Link href="/learn/verbs" className="group block">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Layers className="w-4 h-4" />
+      <section className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-blue-600" />
+            Panduan Interaktif Khusus (12 Modul)
+          </h2>
+          <span className="text-xs text-gray-500 font-medium">Lengkap N5</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {interactiveGuides.map((guide) => (
+            <Link key={guide.href} href={guide.href} className="group block">
+              <div
+                className={`p-4 rounded-2xl border ${guide.borderClass} ${guide.bgClass} hover:shadow-md transition-all flex flex-col justify-between h-full space-y-3`}
+              >
+                <div className="flex items-center justify-between">
+                  <div
+                    className={`p-2.5 ${guide.iconBg} text-white rounded-xl group-hover:scale-105 transition-transform shrink-0`}
+                  >
+                    {guide.icon}
+                  </div>
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/90 border border-gray-200 text-gray-600 shadow-xs">
+                    {guide.badge}
+                  </span>
                 </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-xs leading-tight">
-                  Konjugasi Masu
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                4 bentuk Masu formal & audio.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/te-form" className="group block">
-            <div className="bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-200 rounded-2xl p-3.5 hover:border-violet-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-violet-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Zap className="w-4 h-4" />
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-sm mb-1 leading-snug">
+                    {guide.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    {guide.description}
+                  </p>
                 </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-violet-700 transition-colors text-xs leading-tight">
-                  Bentuk-Te (て形)
-                </h3>
               </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Grup 1/2/3, irama & permohonan.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/forms" className="group block">
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-3.5 hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-xs leading-tight">
-                  Kamus & Nai
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Jisho-kei & Nai-kei konjugasi.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/plain-form" className="group block">
-            <div className="bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-200 rounded-2xl p-3.5 hover:border-rose-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-rose-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <MessageSquare className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-rose-700 transition-colors text-xs leading-tight">
-                  Bentuk Kasual
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Futsūkei biasa & pengalaman.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/connectors" className="group block">
-            <div className="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl p-3.5 hover:border-teal-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-teal-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Link2 className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-teal-700 transition-colors text-xs leading-tight">
-                  Penyambung Kalimat
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Aksi berantai, izin & deskripsi.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/clauses" className="group block">
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-3.5 hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-blue-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <FileText className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-xs leading-tight">
-                  Modifikasi KB & Opini
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Anak kalimat, ~to omoimasu & baju.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/conditionals" className="group block">
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-3.5 hover:border-emerald-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <GitFork className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs leading-tight">
-                  Pengandaian & Bantuan
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                ~To, ~Tara, ~Temo & Kebaikan.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/adjectives" className="group block">
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-3.5 hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-purple-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-purple-700 transition-colors text-xs leading-tight">
-                  Kata Sifat (い & な)
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Rumus negatif, lampau, & KB.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/positions" className="group block">
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl p-3.5 hover:border-cyan-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-cyan-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-cyan-700 transition-colors text-xs leading-tight">
-                  Posisi Ruang
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Preposisi & います/あります.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/counters" className="group block">
-            <div className="bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-200 rounded-2xl p-3.5 hover:border-indigo-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-indigo-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Calculator className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-indigo-700 transition-colors text-xs leading-tight">
-                  Kata Bilangan
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Hitungan 〜つ, 〜人, 〜台, 〜枚.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/dates" className="group block">
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-3.5 hover:border-emerald-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-emerald-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <Calendar className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-xs leading-tight">
-                  Kalender & Tanggal
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Tanggal 1〜31 & bulan 1〜12.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/learn/particle/compare" className="group block">
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-3.5 hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between h-full space-y-2">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-amber-600 text-white rounded-xl group-hover:scale-105 transition-transform shrink-0">
-                  <GitCompare className="w-4 h-4" />
-                </div>
-                <h3 className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors text-xs leading-tight">
-                  Bandingkan Partikel
-                </h3>
-              </div>
-              <p className="text-[10px] text-gray-600 leading-tight">
-                Perbedaan は/が, に/で, dll.
-              </p>
-            </div>
-          </Link>
+            </Link>
+          ))}
         </div>
       </section>
 
