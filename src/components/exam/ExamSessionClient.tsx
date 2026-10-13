@@ -14,6 +14,7 @@ export function ExamSessionClient() {
 
   const [questions, setQuestions] = useState<ExamQuestion[]>([])
   const [title, setTitle] = useState<string>('Ujian Bahasa Jepang')
+  const [timeLimit, setTimeLimit] = useState<number>(10)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -25,6 +26,9 @@ export function ExamSessionClient() {
         }
         if (data.title) {
           setTitle(data.title)
+        }
+        if (data.timeLimitMinutes) {
+          setTimeLimit(data.timeLimitMinutes)
         }
         setLoading(false)
       })
@@ -65,11 +69,11 @@ export function ExamSessionClient() {
 
       <PageHeader
         title={title}
-        description={`Sesi Ujian (${questions.length} Soal) • Batas Waktu: 10 Menit`}
+        description={`Sesi Ujian (${questions.length} Soal) • Batas Waktu: ${timeLimit} Menit`}
         icon={<FileText className="w-8 h-8" />}
       />
 
-      <ExamEngine title={title} questions={questions} timeLimitMinutes={10} />
+      <ExamEngine title={title} questions={questions} timeLimitMinutes={timeLimit} />
     </div>
   )
 }

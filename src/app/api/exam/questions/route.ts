@@ -199,9 +199,17 @@ export async function GET(req: Request) {
       bab25: 'Ujian Evaluasi Bab 25 (Pengandaian ～たら & Pertentangan ～ても)',
     }
 
+    const timeLimitMap: Record<string, number> = {
+      comprehensive: 10,
+      'grammar-particle': 12,
+      'kanji-vocab': 15,
+    }
+    const timeLimitMinutes = timeLimitMap[preset] || 8
+
     return NextResponse.json({
       title: titleMap[preset] || `Ujian ${preset.toUpperCase()}`,
       preset,
+      timeLimitMinutes,
       questions: formattedQuestions,
     })
   } catch (error) {

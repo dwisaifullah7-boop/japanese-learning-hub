@@ -203,7 +203,7 @@ export default async function DashboardPage() {
                   Ujian Evaluasi (Exam)
                 </h4>
                 <p className="text-xs text-gray-500">
-                  Uji kemampuan Anda dalam ujian berbatas waktu denganPassing Score 70%.
+                  Uji kemampuan Anda dalam ujian berbatas waktu dengan Passing Score 70%.
                 </p>
               </div>
             </Link>

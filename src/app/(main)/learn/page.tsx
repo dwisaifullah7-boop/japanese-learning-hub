@@ -263,19 +263,30 @@ export default async function LearnPage() {
       <section>
         <h2 className="text-lg font-bold text-gray-900 mb-4">Kategori Materi Dasar</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {categories.map(cat => (
-            <Link key={cat.title} href={cat.href} className="group block">
-              <div className={`bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-${cat.color}-400 hover:shadow-md transition-all space-y-3`}>
-                <div className={`p-3 bg-${cat.color}-50 text-${cat.color}-600 rounded-xl w-fit group-hover:scale-110 transition-transform`}>
-                  {cat.icon}
+          {categories.map(cat => {
+            const styleMap: Record<string, { border: string; bg: string; text: string }> = {
+              blue: { border: 'hover:border-blue-400', bg: 'bg-blue-50', text: 'text-blue-600' },
+              purple: { border: 'hover:border-purple-400', bg: 'bg-purple-50', text: 'text-purple-600' },
+              red: { border: 'hover:border-red-400', bg: 'bg-red-50', text: 'text-red-600' },
+              indigo: { border: 'hover:border-indigo-400', bg: 'bg-indigo-50', text: 'text-indigo-600' },
+              amber: { border: 'hover:border-amber-400', bg: 'bg-amber-50', text: 'text-amber-600' },
+              emerald: { border: 'hover:border-emerald-400', bg: 'bg-emerald-50', text: 'text-emerald-600' },
+            }
+            const st = styleMap[cat.color] || styleMap.blue
+            return (
+              <Link key={cat.title} href={cat.href} className="group block">
+                <div className={`bg-white p-5 rounded-2xl border border-gray-200 shadow-sm ${st.border} hover:shadow-md transition-all space-y-3`}>
+                  <div className={`p-3 ${st.bg} ${st.text} rounded-xl w-fit group-hover:scale-110 transition-transform`}>
+                    {cat.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{cat.title}</h3>
+                    <p className="text-xs text-gray-500">{cat.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{cat.title}</h3>
-                  <p className="text-xs text-gray-500">{cat.description}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </section>
 

@@ -35,6 +35,11 @@ export function ExamEngine({ title, questions, timeLimitMinutes = 10 }: ExamEngi
   const { playAudio } = useAudio()
   const initialTimeRef = useRef(timeLimitMinutes * 60)
 
+  useEffect(() => {
+    setSecondsLeft(timeLimitMinutes * 60)
+    initialTimeRef.current = timeLimitMinutes * 60
+  }, [timeLimitMinutes])
+
   // Countdown Timer
   useEffect(() => {
     if (examResultData || isSubmitting) return
