@@ -6,6 +6,18 @@ import { useSession, signOut } from 'next-auth/react'
 import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+const MAIN_MENU = [
+  { href: '/home',     label: 'Home',     icon: Home },
+  { href: '/learn',    label: 'Learn',    icon: BookOpen },
+  { href: '/practice', label: 'Practice', icon: PenTool },
+  { href: '/mastery',  label: 'Mastery',  icon: Target },
+  { href: '/review',   label: 'Review',   icon: AlertCircle },
+  { href: '/exam',     label: 'Exam',     icon: FileText },
+  { href: '/search',   label: 'Search',   icon: Search },
+  { href: '/progress', label: 'Progress', icon: BarChart3 },
+  { href: '/dashboard',label: 'Dashboard',icon: LayoutDashboard },
+]
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
@@ -15,20 +27,8 @@ export function Navbar() {
     setIsMounted(true)
   }, [])
 
-  const mainMenu = [
-    { href: '/home',     label: 'Home',     icon: Home },
-    { href: '/learn',    label: 'Learn',    icon: BookOpen },
-    { href: '/practice', label: 'Practice', icon: PenTool },
-    { href: '/mastery',  label: 'Mastery',  icon: Target },
-    { href: '/review',   label: 'Review',   icon: AlertCircle },
-    { href: '/exam',     label: 'Exam',     icon: FileText },
-    { href: '/search',   label: 'Search',   icon: Search },
-    { href: '/progress', label: 'Progress', icon: BarChart3 },
-    { href: '/dashboard',label: 'Dashboard',icon: LayoutDashboard },
-  ]
-
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50" suppressHydrationWarning>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,8 +38,8 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {mainMenu.map((item) => (
+          <div className="hidden lg:flex items-center space-x-1" suppressHydrationWarning>
+            {MAIN_MENU.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -99,7 +99,7 @@ export function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-64px)] overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {mainMenu.map((item) => (
+            {MAIN_MENU.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
