@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { Button } from '@/components/ui/button'
 import { Settings, Volume2, Palette, Sliders, RotateCcw, Check, Save } from 'lucide-react'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 export interface UserSettings {
   voiceSpeed: number // 1.0 or 0.75
@@ -26,6 +27,7 @@ const DEFAULT_SETTINGS: UserSettings = {
 }
 
 export function SettingsClient() {
+  const { setTheme: setGlobalTheme } = useTheme()
   const [settings, setSettings] = useState<UserSettings>(DEFAULT_SETTINGS)
   const [savedMessage, setSavedMessage] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
@@ -46,6 +48,9 @@ export function SettingsClient() {
     const updated = { ...settings, [key]: value }
     setSettings(updated)
     localStorage.setItem('jh_user_settings', JSON.stringify(updated))
+    if (key === 'theme') {
+      setGlobalTheme(value as any)
+    }
     setSavedMessage(true)
     setTimeout(() => setSavedMessage(false), 2000)
   }
@@ -53,6 +58,7 @@ export function SettingsClient() {
   const resetToDefault = () => {
     setSettings(DEFAULT_SETTINGS)
     localStorage.setItem('jh_user_settings', JSON.stringify(DEFAULT_SETTINGS))
+    setGlobalTheme('default')
     setSavedMessage(true)
     setTimeout(() => setSavedMessage(false), 2000)
   }
@@ -186,29 +192,51 @@ export function SettingsClient() {
 
           {/* Theme selection */}
           <div className="space-y-2">
-            <label className="font-semibold text-gray-800 block">Tema Tampilan (Color Theme)</label>
-            <div className="grid grid-cols-2 gap-2">
+            <label className="font-semibold text-gray-800 dark:text-gray-200 block">Tema Tampilan (Color Theme)</label>
+            <div className="grid grid-cols-2 gap-2.5">
               <button
                 type="button"
                 onClick={() => updateSetting('theme', 'default')}
-                className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all ${
+                className={`py-2.5 px-3 rounded-xl border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                   settings.theme === 'default'
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'bg-gray-50 border-gray-200 text-gray-700'
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50'
                 }`}
               >
-                🔵 Modern Blue (Default)
+                <span>☀️</span> Modern Light
+              </button>
+              <button
+                type="button"
+                onClick={() => updateSetting('theme', 'dark')}
+                className={`py-2.5 px-3 rounded-xl border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                  settings.theme === 'dark'
+                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
+                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                <span>🌙</span> Dark Mode
               </button>
               <button
                 type="button"
                 onClick={() => updateSetting('theme', 'sakura')}
-                className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all ${
+                className={`py-2.5 px-3 rounded-xl border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                   settings.theme === 'sakura'
-                    ? 'bg-pink-600 text-white border-pink-600'
-                    : 'bg-pink-50 border-pink-200 text-pink-700'
+                    ? 'bg-pink-600 text-white border-pink-600 shadow-xs'
+                    : 'bg-white dark:bg-slate-800 border-pink-200 dark:border-slate-700 text-pink-700 dark:text-pink-300 hover:bg-pink-50'
                 }`}
               >
-                🌸 Sakura Pink
+                <span>🌸</span> Sakura Pink
+              </button>
+              <button
+                type="button"
+                onClick={() => updateSetting('theme', 'forest')}
+                className={`py-2.5 px-3 rounded-xl border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                  settings.theme === 'forest'
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                    : 'bg-white dark:bg-slate-800 border-emerald-200 dark:border-slate-700 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50'
+                }`}
+              >
+                <span>🍵</span> Forest Matcha
               </button>
             </div>
           </div>
@@ -216,20 +244,20 @@ export function SettingsClient() {
       </section>
 
       {/* Learning Preferences Section */}
-      <section className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-6">
-        <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 border-b pb-3">
-          <Sliders className="w-5 h-5 text-emerald-600" />
+      <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs space-y-6">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 border-b border-gray-100 dark:border-slate-800 pb-3">
+          <Sliders className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           Target & Syarat Pembelajaran
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           {/* Daily Goal Target */}
           <div className="space-y-2">
-            <label className="font-semibold text-gray-800 block">Target Soal Harian (Daily Target)</label>
+            <label className="font-semibold text-gray-800 dark:text-gray-200 block">Target Soal Harian (Daily Target)</label>
             <select
               value={settings.dailyGoal}
               onChange={e => updateSetting('dailyGoal', parseInt(e.target.value, 10))}
-              className="w-full p-3 rounded-xl border border-gray-200 bg-white font-medium text-gray-800 focus:outline-none focus:border-blue-600"
+              className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-600"
             >
               <option value={5}>5 Soal / Hari (Ringan)</option>
               <option value={10}>10 Soal / Hari (Standar Recommended)</option>
@@ -240,11 +268,11 @@ export function SettingsClient() {
 
           {/* Exam Passing Threshold */}
           <div className="space-y-2">
-            <label className="font-semibold text-gray-800 block">Syarat Kelulusan Ujian (Passing Grade)</label>
+            <label className="font-semibold text-gray-800 dark:text-gray-200 block">Syarat Kelulusan Ujian (Passing Grade)</label>
             <select
               value={settings.passingThreshold}
               onChange={e => updateSetting('passingThreshold', parseInt(e.target.value, 10))}
-              className="w-full p-3 rounded-xl border border-gray-200 bg-white font-medium text-gray-800 focus:outline-none focus:border-blue-600"
+              className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 font-medium text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-600"
             >
               <option value={60}>60% (Cukup)</option>
               <option value={70}>70% (Standar Ideal)</option>

@@ -28,19 +28,25 @@ export function MaterialCard({
   return (
     <div
       className={cn(
-        'bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow',
+        'group relative overflow-hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs hover-float hover:border-blue-400 dark:hover:border-blue-500 transition-all',
         onClick && 'cursor-pointer active:scale-[0.98]',
         className
       )}
       onClick={onClick}
     >
       <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-          {icon && <div className="text-xl sm:text-2xl flex-shrink-0">{icon}</div>}
+        <div className="flex items-center gap-3 sm:gap-3.5 flex-1 min-w-0">
+          {icon && (
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 group-hover:scale-110 transition-transform duration-300 shrink-0">
+              {icon}
+            </div>
+          )}
           <div className="min-w-0 flex-1">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 truncate">{title}</h3>
+            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+              {title}
+            </h3>
             {subtitle && (
-              <p className="text-xs sm:text-sm text-gray-500 truncate">{subtitle}</p>
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">{subtitle}</p>
             )}
           </div>
         </div>
@@ -52,15 +58,19 @@ export function MaterialCard({
               e.stopPropagation()
               onAudioClick()
             }}
-            className="ml-2 flex-shrink-0 min-w-[44px] min-h-[44px]"
+            className="ml-2 flex-shrink-0 min-w-[40px] min-h-[40px] rounded-xl hover:bg-blue-50 dark:hover:bg-slate-800"
           >
-            <Volume2 className="w-4 h-4" />
+            <Volume2 className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </Button>
         )}
       </div>
+
       {description && (
-        <p className="text-sm sm:text-base text-gray-600 mb-3">{description}</p>
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 line-clamp-2 leading-relaxed">
+          {description}
+        </p>
       )}
+
       {children}
     </div>
   )

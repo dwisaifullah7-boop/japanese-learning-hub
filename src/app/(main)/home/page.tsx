@@ -88,28 +88,36 @@ export default async function HomePage() {
       </div>
 
       {/* Daily Goal Card */}
-      <div className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200 space-y-3">
+      <div className={`p-5 sm:p-6 rounded-2xl border transition-all ${
+        dailyProgress >= 100
+          ? 'bg-gradient-to-r from-amber-500/10 via-yellow-500/10 to-emerald-500/10 border-amber-300 dark:border-amber-700/50 shadow-md'
+          : 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-gray-200/80 dark:border-slate-800 shadow-xs'
+      } space-y-3`}>
         <div className="flex items-center justify-between">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-blue-600" />
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-amber-500" />
             Target Latihan Hari Ini
           </h2>
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+          <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
+            dailyProgress >= 100
+              ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+              : 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800'
+          }`}>
             {todayAttempts} / {dailyTarget} Soal
           </span>
         </div>
 
-        <ProgressBar value={dailyProgress} label="Progress Target Harian" color="blue" />
+        <ProgressBar value={dailyProgress} label="Progress Target Harian" color={dailyProgress >= 100 ? 'green' : 'blue'} />
 
         <div className="flex items-center justify-between pt-1">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
             {dailyProgress >= 100
-              ? '🎉 Hebat! Target latihan harianmu sudah tercapai hari ini.'
+              ? '🎉 Luar biasa! Target latihan harianmu sudah tercapai hari ini.'
               : `Selesaikan ${dailyTarget - todayAttempts} soal lagi untuk mencapai target.`}
           </p>
           <Link
             href="/practice"
-            className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
+            className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 flex items-center gap-1 transition-colors"
           >
             Latihan Sekarang <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -118,7 +126,10 @@ export default async function HomePage() {
 
       {/* Main Learning Hub Portals */}
       <div>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Navigasi Cepat</h2>
+        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <span>⛩️</span>
+          Navigasi Cepat Kurikulum
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <Link href="/learn">
             <MaterialCard

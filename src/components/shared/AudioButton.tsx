@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 
 interface AudioButtonProps {
   audioUrl?: string | null
+  text?: string | null
   onClick?: () => void
   disabled?: boolean
   size?: 'sm' | 'md' | 'lg'
@@ -15,14 +16,16 @@ interface AudioButtonProps {
 
 export function AudioButton({
   audioUrl,
+  text,
   onClick,
   disabled = false,
   size = 'md',
   className,
 }: AudioButtonProps) {
   const { playAudio, isPlaying, currentAudioUrl } = useAudio()
+  const target = audioUrl || text || ''
 
-  const isActive = currentAudioUrl === audioUrl && isPlaying
+  const isActive = currentAudioUrl === target && isPlaying
   const isDisabled = disabled
 
   const handleClick = (e: React.MouseEvent) => {
@@ -32,7 +35,7 @@ export function AudioButton({
     if (onClick) {
       onClick()
     } else {
-      playAudio(audioUrl || '')
+      playAudio(target, text || undefined)
     }
   }
 

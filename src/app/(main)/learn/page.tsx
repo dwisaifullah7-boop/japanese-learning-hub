@@ -222,27 +222,30 @@ export default async function LearnPage() {
 
       {/* Categories Grid */}
       <section>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Kategori Materi Dasar</h2>
+        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <span>📚</span>
+          Kategori Materi Dasar
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {categories.map(cat => {
             const styleMap: Record<string, { border: string; bg: string; text: string }> = {
-              blue: { border: 'hover:border-blue-400', bg: 'bg-blue-50', text: 'text-blue-600' },
-              purple: { border: 'hover:border-purple-400', bg: 'bg-purple-50', text: 'text-purple-600' },
-              red: { border: 'hover:border-red-400', bg: 'bg-red-50', text: 'text-red-600' },
-              indigo: { border: 'hover:border-indigo-400', bg: 'bg-indigo-50', text: 'text-indigo-600' },
-              amber: { border: 'hover:border-amber-400', bg: 'bg-amber-50', text: 'text-amber-600' },
-              emerald: { border: 'hover:border-emerald-400', bg: 'bg-emerald-50', text: 'text-emerald-600' },
+              blue: { border: 'hover:border-blue-400 dark:hover:border-blue-500', bg: 'bg-blue-50 dark:bg-blue-950/60', text: 'text-blue-600 dark:text-blue-400' },
+              purple: { border: 'hover:border-purple-400 dark:hover:border-purple-500', bg: 'bg-purple-50 dark:bg-purple-950/60', text: 'text-purple-600 dark:text-purple-400' },
+              red: { border: 'hover:border-red-400 dark:hover:border-red-500', bg: 'bg-red-50 dark:bg-red-950/60', text: 'text-red-600 dark:text-red-400' },
+              indigo: { border: 'hover:border-indigo-400 dark:hover:border-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-950/60', text: 'text-indigo-600 dark:text-indigo-400' },
+              amber: { border: 'hover:border-amber-400 dark:hover:border-amber-500', bg: 'bg-amber-50 dark:bg-amber-950/60', text: 'text-amber-600 dark:text-amber-400' },
+              emerald: { border: 'hover:border-emerald-400 dark:hover:border-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-950/60', text: 'text-emerald-600 dark:text-emerald-400' },
             }
             const st = styleMap[cat.color] || styleMap.blue
             return (
               <Link key={cat.title} href={cat.href} className="group block">
-                <div className={`bg-white p-5 rounded-2xl border border-gray-200 shadow-sm ${st.border} hover:shadow-md transition-all space-y-3`}>
+                <div className={`bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs ${st.border} hover-float transition-all space-y-3`}>
                   <div className={`p-3 ${st.bg} ${st.text} rounded-xl w-fit group-hover:scale-110 transition-transform`}>
                     {cat.icon}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{cat.title}</h3>
-                    <p className="text-xs text-gray-500">{cat.description}</p>
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{cat.title}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{cat.description}</p>
                   </div>
                 </div>
               </Link>
@@ -253,11 +256,14 @@ export default async function LearnPage() {
 
       {/* Courses & Lessons */}
       <section>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Kurikulum Buku & Bab (Minna no Nihongo)</h2>
+        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+          <span>🌸</span>
+          Kurikulum Buku & Bab (Minna no Nihongo)
+        </h2>
         {courses.map(course => (
-          <div key={course.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-6">
-            <div className="bg-gradient-to-r from-slate-900 to-indigo-900 p-5">
-              <h3 className="text-xl font-bold text-white">{course.title}</h3>
+          <div key={course.id} className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden mb-6">
+            <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 p-5 text-white">
+              <h3 className="text-xl font-bold">{course.title}</h3>
               {course.description && <p className="text-sm text-gray-300 mt-1">{course.description}</p>}
             </div>
             <div className="p-4 space-y-2">
@@ -266,22 +272,22 @@ export default async function LearnPage() {
                 const totalItems = c.hiragana + c.katakana + c.kanji + c.vocabulary + c.particles + c.grammar
                 return (
                   <Link key={lesson.id} href={`/learn/lesson/${lesson.id}`} className="group block">
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-blue-50 hover:border-blue-200 border border-transparent transition-all">
+                    <div className="flex items-center justify-between p-4 bg-gray-50/80 dark:bg-slate-800/60 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:border-blue-200 dark:hover:border-blue-800 border border-transparent transition-all">
                       <div>
-                        <h4 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors">{lesson.title}</h4>
-                        {lesson.description && <p className="text-xs text-gray-500 mt-0.5">{lesson.description}</p>}
+                        <h4 className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{lesson.title}</h4>
+                        {lesson.description && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{lesson.description}</p>}
                         <div className="flex flex-wrap gap-1.5 mt-2">
-                          {c.hiragana > 0 && <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{c.hiragana} Hiragana</span>}
-                          {c.katakana > 0 && <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">{c.katakana} Katakana</span>}
-                          {c.kanji > 0 && <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full">{c.kanji} Kanji</span>}
-                          {c.vocabulary > 0 && <span className="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{c.vocabulary} Vocab</span>}
-                          {c.particles > 0 && <span className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{c.particles} Partikel</span>}
-                          {c.grammar > 0 && <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">{c.grammar} Grammar</span>}
+                          {c.hiragana > 0 && <span className="text-[10px] bg-blue-100 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">{c.hiragana} Hiragana</span>}
+                          {c.katakana > 0 && <span className="text-[10px] bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded-full">{c.katakana} Katakana</span>}
+                          {c.kanji > 0 && <span className="text-[10px] bg-red-100 dark:bg-red-950/70 text-red-700 dark:text-red-300 px-2 py-0.5 rounded-full">{c.kanji} Kanji</span>}
+                          {c.vocabulary > 0 && <span className="text-[10px] bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full">{c.vocabulary} Vocab</span>}
+                          {c.particles > 0 && <span className="text-[10px] bg-amber-100 dark:bg-amber-950/70 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full">{c.particles} Partikel</span>}
+                          {c.grammar > 0 && <span className="text-[10px] bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full">{c.grammar} Grammar</span>}
                         </div>
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
                         <span className="text-xs font-bold text-gray-400">{totalItems} materi</span>
-                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
+                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-0.5 transition-all" />
                       </div>
                     </div>
                   </Link>

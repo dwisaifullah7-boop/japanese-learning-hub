@@ -6,6 +6,8 @@ import { useSession, signOut } from 'next-auth/react'
 import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+import { ThemeToggle } from './ThemeToggle'
+
 const MAIN_MENU = [
   { href: '/home',     label: 'Home',     icon: Home },
   { href: '/learn',    label: 'Learn',    icon: BookOpen },
@@ -28,13 +30,15 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50" suppressHydrationWarning>
+    <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 transition-colors" suppressHydrationWarning>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/home" className="flex items-center space-x-2 flex-shrink-0">
-            <span className="text-2xl">🎌</span>
-            <span className="text-lg sm:text-xl font-bold text-gray-900">Japanese Learning Hub</span>
+          <Link href="/home" className="flex items-center space-x-2 flex-shrink-0 group">
+            <span className="text-2xl group-hover:rotate-12 transition-transform duration-200">🎌</span>
+            <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 via-indigo-950 to-blue-900 dark:from-white dark:via-blue-200 dark:to-indigo-300 bg-clip-text text-transparent">
+              Japanese Learning Hub
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -43,7 +47,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 <item.icon className="w-4 h-4" />
                 <span>{item.label}</span>
@@ -51,13 +55,15 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* User Menu (Desktop) - Hydration Safe */}
-          <div className="hidden lg:flex items-center space-x-2">
+          {/* Right Action Icons: Theme Toggle + User Menu (Desktop) */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <ThemeToggle />
+
             {!isMounted ? (
-              <div className="h-8 w-24 bg-gray-100 animate-pulse rounded-md" />
+              <div className="h-8 w-24 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-md" />
             ) : session?.user ? (
               <>
-                <div className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700">
+                <div className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                   <User className="w-4 h-4" />
                   <span className="max-w-[150px] truncate">{session.user.name || session.user.email}</span>
                 </div>
@@ -65,6 +71,7 @@ export function Navbar() {
                   variant="outline" 
                   size="sm" 
                   onClick={() => signOut({ callbackUrl: '/login' })}
+                  className="dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
                 >
                   <LogOut className="w-4 h-4 mr-1" />
                   Logout
@@ -73,7 +80,7 @@ export function Navbar() {
             ) : (
               <>
                 <Link href="/login">
-                  <Button variant="ghost" size="sm">Login</Button>
+                  <Button variant="ghost" size="sm" className="dark:text-gray-200 dark:hover:bg-gray-800">Login</Button>
                 </Link>
                 <Link href="/register">
                   <Button variant="default" size="sm">Register</Button>
@@ -82,16 +89,19 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="lg:hidden min-w-[44px] min-h-[44px]"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
+          {/* Mobile Right Controls: Theme Toggle + Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="min-w-[44px] min-h-[44px] dark:text-gray-200"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
+          </div>
         </div>
       </div>
 
