@@ -1,105 +1,171 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSession, signOut } from 'next-auth/react'
-import { Menu, X, Home, BookOpen, PenTool, Target, FileText, Search, BarChart3, LayoutDashboard, LogOut, User, AlertCircle } from 'lucide-react'
+import {
+  Menu,
+  X,
+  Home,
+  BookOpen,
+  PenTool,
+  FileText,
+  Search,
+  MoreHorizontal,
+  Target,
+  AlertCircle,
+  BarChart3,
+  LayoutDashboard,
+  LogOut,
+  User,
+  ChevronDown
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
 import { ThemeToggle } from './ThemeToggle'
 
-const MAIN_MENU = [
+const PRIMARY_MENU = [
   { href: '/home',     label: 'Home',     icon: Home },
-  { href: '/learn',    label: 'Learn',    icon: BookOpen },
-  { href: '/practice', label: 'Practice', icon: PenTool },
-  { href: '/mastery',  label: 'Mastery',  icon: Target },
-  { href: '/review',   label: 'Review',   icon: AlertCircle },
-  { href: '/exam',     label: 'Exam',     icon: FileText },
-  { href: '/search',   label: 'Search',   icon: Search },
-  { href: '/progress', label: 'Progress', icon: BarChart3 },
-  { href: '/dashboard',label: 'Dashboard',icon: LayoutDashboard },
+  { href: '/learn',    label: 'Belajar',  icon: BookOpen },
+  { href: '/practice', label: 'Latihan',  icon: PenTool },
+  { href: '/exam',     label: 'Ujian',    icon: FileText },
+]
+
+const SECONDARY_MENU = [
+  { href: '/search',   label: 'Pencarian & Kamus', icon: Search, desc: 'Cari kosakata, kanji, & pola kalimat' },
+  { href: '/mastery',  label: 'Status Mastery',     icon: Target, desc: 'Tingkat penguasaan materi' },
+  { href: '/review',   label: 'Review Lemah',       icon: AlertCircle, desc: 'Perkuat materi akurasi rendah' },
+  { href: '/progress', label: 'Progres & XP',       icon: BarChart3, desc: 'Statistik belajar & pencapaian' },
+  { href: '/dashboard',label: 'Dashboard Belajar',  icon: LayoutDashboard, desc: 'Ringkasan aktivitas pengguna' },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
+  const moreRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (moreRef.current && !moreRef.current.contains(event.target as Node)) {
+        setMoreOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   return (
-    <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 transition-colors" suppressHydrationWarning>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80 sticky top-0 z-50 transition-colors" suppressHydrationWarning>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/home" className="flex items-center space-x-2 flex-shrink-0 group">
-            <span className="text-2xl group-hover:rotate-12 transition-transform duration-200">🎌</span>
-            <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 via-indigo-950 to-blue-900 dark:from-white dark:via-blue-200 dark:to-indigo-300 bg-clip-text text-transparent">
+          {/* Logo Minimalis */}
+          <Link href="/home" className="flex items-center gap-2.5 flex-shrink-0 group">
+            <span className="text-xl">🎌</span>
+            <span className="text-base sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
               Japanese Learning Hub
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1" suppressHydrationWarning>
-            {MAIN_MENU.map((item) => (
+          {/* Desktop Primary Menu (4 Bersih) */}
+          <div className="hidden md:flex items-center gap-1" suppressHydrationWarning>
+            {PRIMARY_MENU.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors"
               >
                 <item.icon className="w-4 h-4" />
                 <span>{item.label}</span>
               </Link>
             ))}
+
+            {/* Menu Lainnya Dropdown */}
+            <div className="relative" ref={moreRef}>
+              <button
+                onClick={() => setMoreOpen(!moreOpen)}
+                className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors"
+                aria-expanded={moreOpen}
+              >
+                <span>Lainnya</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${moreOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {moreOpen && (
+                <div className="absolute left-0 mt-2 w-64 p-2 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200/80 dark:border-zinc-800 z-50 animate-in fade-in zoom-in-95 duration-150 space-y-0.5">
+                  <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                    Fitur & Statistik
+                  </div>
+                  {SECONDARY_MENU.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMoreOpen(false)}
+                      className="flex items-start gap-3 p-2.5 rounded-xl text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                      <item.icon className="w-4 h-4 mt-0.5 text-zinc-500 dark:text-zinc-400" />
+                      <div>
+                        <div className="font-semibold text-zinc-900 dark:text-zinc-100">{item.label}</div>
+                        <div className="text-[11px] text-zinc-400 dark:text-zinc-500">{item.desc}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Right Action Icons: Theme Toggle + User Menu (Desktop) */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
 
             {!isMounted ? (
-              <div className="h-8 w-24 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-md" />
+              <div className="h-8 w-20 bg-zinc-100 dark:bg-zinc-800 animate-pulse rounded-xl" />
             ) : session?.user ? (
-              <>
-                <div className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                  <User className="w-4 h-4" />
-                  <span className="max-w-[150px] truncate">{session.user.name || session.user.email}</span>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 rounded-xl">
+                  <User className="w-3.5 h-3.5" />
+                  <span className="max-w-[120px] truncate">{session.user.name || session.user.email}</span>
                 </div>
                 <Button 
-                  variant="outline" 
+                  variant="ghost" 
                   size="sm" 
                   onClick={() => signOut({ callbackUrl: '/login' })}
-                  className="dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
+                  className="text-xs text-zinc-500 hover:text-red-600 dark:hover:text-red-400 h-8 px-2.5 rounded-xl"
+                  title="Logout"
                 >
-                  <LogOut className="w-4 h-4 mr-1" />
-                  Logout
+                  <LogOut className="w-3.5 h-3.5" />
                 </Button>
-              </>
+              </div>
             ) : (
-              <>
+              <div className="flex items-center gap-1.5">
                 <Link href="/login">
-                  <Button variant="ghost" size="sm" className="dark:text-gray-200 dark:hover:bg-gray-800">Login</Button>
+                  <Button variant="ghost" size="sm" className="text-xs h-8 px-3 rounded-xl">Login</Button>
                 </Link>
                 <Link href="/register">
-                  <Button variant="default" size="sm">Register</Button>
+                  <Button variant="default" size="sm" className="text-xs h-8 px-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white dark:text-zinc-900">
+                    Register
+                  </Button>
                 </Link>
-              </>
+              </div>
             )}
           </div>
 
           {/* Mobile Right Controls: Theme Toggle + Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
-              className="min-w-[44px] min-h-[44px] dark:text-gray-200"
+              className="min-w-[40px] min-h-[40px] rounded-xl text-zinc-700 dark:text-zinc-200"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
         </div>
@@ -107,62 +173,79 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-64px)] overflow-y-auto">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {MAIN_MENU.map((item) => (
+        <div className="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 max-h-[calc(100vh-64px)] overflow-y-auto p-4 space-y-4">
+          <div className="space-y-1">
+            <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+              Menu Utama
+            </div>
+            {PRIMARY_MENU.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 min-h-[44px]"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                <item.icon className="w-5 h-5" />
+                <item.icon className="w-4 h-4 text-zinc-500" />
                 <span>{item.label}</span>
               </Link>
             ))}
-            
-            {/* Mobile User Menu - Hydration Safe */}
-            <div className="border-t border-gray-200 pt-2 mt-2 space-y-1">
-              {!isMounted ? (
-                <div className="h-10 w-full bg-gray-100 animate-pulse rounded-md my-1" />
-              ) : session?.user ? (
-                <>
-                  <div className="flex items-center space-x-2 px-3 py-3 text-base font-medium text-gray-700">
-                    <User className="w-5 h-5" />
-                    <span className="truncate">{session.user.name || session.user.email}</span>
-                  </div>
-                  <button
-                    onClick={() => {
-                      signOut({ callbackUrl: '/login' })
-                      setIsOpen(false)
-                    }}
-                    className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-red-600 hover:bg-red-50 w-full text-left min-h-[44px]"
-                  >
-                    <LogOut className="w-5 h-5" />
-                    <span>Logout</span>
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 min-h-[44px]"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <User className="w-5 h-5" />
-                    <span>Login</span>
-                  </Link>
-                  <Link
-                    href="/register"
-                    className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 min-h-[44px]"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <User className="w-5 h-5" />
-                    <span>Register</span>
-                  </Link>
-                </>
-              )}
+          </div>
+
+          <div className="space-y-1 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+            <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+              Fitur Lanjutan
             </div>
+            {SECONDARY_MENU.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                <item.icon className="w-4 h-4 text-zinc-400" />
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </div>
+          
+          {/* Mobile User Menu */}
+          <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
+            {!isMounted ? (
+              <div className="h-9 w-full bg-zinc-100 dark:bg-zinc-800 animate-pulse rounded-xl" />
+            ) : session?.user ? (
+              <div className="flex items-center justify-between p-2 rounded-xl bg-zinc-50 dark:bg-zinc-900">
+                <div className="flex items-center gap-2 text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                  <User className="w-4 h-4 text-zinc-400" />
+                  <span className="truncate max-w-[180px]">{session.user.name || session.user.email}</span>
+                </div>
+                <button
+                  onClick={() => {
+                    signOut({ callbackUrl: '/login' })
+                    setIsOpen(false)
+                  }}
+                  className="text-xs text-red-600 font-semibold px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/login"
+                  className="text-center py-2 text-xs font-semibold rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  className="text-center py-2 text-xs font-semibold rounded-xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

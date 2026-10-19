@@ -58,66 +58,55 @@ export default async function HomePage() {
   const dailyProgress = Math.min(100, Math.round((todayAttempts / dailyTarget) * 100))
 
   return (
-    <div className="space-y-6 sm:space-y-8 max-w-5xl mx-auto">
+    <div className="space-y-6 max-w-5xl mx-auto">
       <PageHeader
         title={session?.user?.name ? `Konnichiwa, ${session.user.name}! 🎌` : 'Home'}
-        description="Selamat datang di Japanese Learning Hub! Terus tingkatkan kemampuan bahasa Jepangmu setiap hari."
+        description="Selamat datang di Japanese Learning Hub. Terus tingkatkan kemampuan bahasa Jepangmu dengan tenang dan teratur."
         icon={<span>🎌</span>}
       />
 
-      {/* Stats Summary */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+      {/* Stats Summary Minimalis */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
         <StatCard
           label="Total XP"
           value={stats.xp.toString()}
-          icon={<Award className="w-6 h-6" />}
-          color="blue"
+          icon={<Award className="w-5 h-5" />}
         />
         <StatCard
           label={`Level ${stats.level} (${stats.levelTitle})`}
           value={`Lv. ${stats.level}`}
-          icon={<TrendingUp className="w-6 h-6" />}
-          color="green"
+          icon={<TrendingUp className="w-5 h-5" />}
         />
         <StatCard
           label="Streak Harian"
           value={`${stats.streakDays} Hari`}
-          icon={<Flame className="w-6 h-6" />}
-          color="orange"
+          icon={<Flame className="w-5 h-5" />}
         />
       </div>
 
-      {/* Daily Goal Card */}
-      <div className={`p-5 sm:p-6 rounded-2xl border transition-all ${
-        dailyProgress >= 100
-          ? 'bg-gradient-to-r from-amber-500/10 via-yellow-500/10 to-emerald-500/10 border-amber-300 dark:border-amber-700/50 shadow-md'
-          : 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-gray-200/80 dark:border-slate-800 shadow-xs'
-      } space-y-3`}>
+      {/* Daily Goal Card Bersih */}
+      <div className="p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-500" />
+          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-zinc-400" />
             Target Latihan Hari Ini
           </h2>
-          <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
-            dailyProgress >= 100
-              ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
-              : 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800'
-          }`}>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
             {todayAttempts} / {dailyTarget} Soal
           </span>
         </div>
 
-        <ProgressBar value={dailyProgress} label="Progress Target Harian" color={dailyProgress >= 100 ? 'green' : 'blue'} />
+        <ProgressBar value={dailyProgress} label="Progress Target Harian" color="blue" />
 
         <div className="flex items-center justify-between pt-1">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">
             {dailyProgress >= 100
-              ? '🎉 Luar biasa! Target latihan harianmu sudah tercapai hari ini.'
+              ? 'Target latihan harianmu sudah tercapai hari ini.'
               : `Selesaikan ${dailyTarget - todayAttempts} soal lagi untuk mencapai target.`}
           </p>
           <Link
             href="/practice"
-            className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 flex items-center gap-1 transition-colors"
+            className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center gap-1 transition-colors"
           >
             Latihan Sekarang <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -125,52 +114,51 @@ export default async function HomePage() {
       </div>
 
       {/* Main Learning Hub Portals */}
-      <div>
-        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-          <span>⛩️</span>
-          Navigasi Cepat Kurikulum
+      <div className="space-y-3">
+        <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+          Navigasi Cepat
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
           <Link href="/learn">
             <MaterialCard
               title="Learn Hub"
               description="Pelajari Hiragana, Katakana, Kanji, Kosakata, Partikel, & Grammar Minna no Nihongo."
-              icon={<BookOpen className="w-6 h-6 text-blue-600" />}
+              icon={<BookOpen className="w-5 h-5" />}
             />
           </Link>
           <Link href="/practice">
             <MaterialCard
               title="Practice Hub"
               description="Flashcard, Pilihan Ganda, Type Answer, dan Audio Quiz interaktif."
-              icon={<PenTool className="w-6 h-6 text-green-600" />}
+              icon={<PenTool className="w-5 h-5" />}
             />
           </Link>
           <Link href="/practice/review">
             <MaterialCard
               title={`Review Lemah (${stats.reviewCount})`}
               description="Ulangi materi yang perlu diperkuat agar naik ke status Mastered."
-              icon={<RotateCcw className="w-6 h-6 text-amber-600" />}
+              icon={<RotateCcw className="w-5 h-5" />}
             />
           </Link>
           <Link href="/exam">
             <MaterialCard
               title="Ujian Evaluasi (Exam)"
               description="Uji kemampuan komprehensif berbatas waktu dengan passing grade 70%."
-              icon={<FileCheck2 className="w-6 h-6 text-purple-600" />}
+              icon={<FileCheck2 className="w-5 h-5" />}
             />
           </Link>
           <Link href="/mastery">
             <MaterialCard
               title={`Mastery (${stats.masteredCount} Dikuasai)`}
               description="Pantau tingkat penguasaan setiap materi secara mendalam."
-              icon={<Target className="w-6 h-6 text-rose-600" />}
+              icon={<Target className="w-5 h-5" />}
             />
           </Link>
           <Link href="/search">
             <MaterialCard
               title="Kamus & Pencarian"
               description="Cari kosakata, kanji, atau grammar secara instan di database & web."
-              icon={<Search className="w-6 h-6 text-indigo-600" />}
+              icon={<Search className="w-5 h-5" />}
             />
           </Link>
         </div>
