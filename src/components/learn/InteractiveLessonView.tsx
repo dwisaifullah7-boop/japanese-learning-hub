@@ -6,18 +6,18 @@ import { AudioButton } from '@/components/shared/AudioButton'
 import {
   BookOpen,
   Languages,
-  Type,
   FileText,
   BookMarked,
   Sparkles,
-  PenTool,
-  ArrowRight,
-  RotateCcw,
   Layers,
   Award,
   ChevronLeft,
   ChevronRight,
-  Volume2
+  RotateCcw,
+  GraduationCap,
+  FileSpreadsheet,
+  ArrowRight,
+  PenTool
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -72,7 +72,9 @@ interface LessonData {
 }
 
 export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
-  const [activeTab, setActiveTab] = useState<'all' | 'vocabulary' | 'kanji' | 'grammar' | 'particles' | 'kana'>('all')
+  const [activeTab, setActiveTab] = useState<
+    'all' | 'cheatsheet' | 'vocabulary' | 'kanji' | 'grammar' | 'particles' | 'kana'
+  >('cheatsheet')
   const [flashcardMode, setFlashcardMode] = useState(false)
   const [cardIndex, setCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
@@ -118,18 +120,18 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
   return (
     <div className="space-y-6">
       {/* Quick Action & Milestone Bar */}
-      <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
               {lesson.course.title}
             </span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">
-              Total {totalContent} Materi Pembelajaran
+            <span className="text-xs text-zinc-500 dark:text-zinc-400">
+              Total {totalContent} item materi
             </span>
           </div>
-          <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-            Kuasai bab ini dengan latihan soal atau flashcard interaktif
+          <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+            Pilih cara belajarmu: baca rangkuman, hafalkan dengan flashcard, atau langsung uji pemahaman.
           </p>
         </div>
 
@@ -138,14 +140,28 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
             variant={flashcardMode ? 'default' : 'outline'}
             size="sm"
             onClick={() => setFlashcardMode(!flashcardMode)}
-            className="flex-1 sm:flex-none rounded-xl dark:border-slate-700"
+            className="flex-1 sm:flex-none rounded-xl"
           >
             <Layers className="w-4 h-4 mr-1.5" />
-            {flashcardMode ? 'Mode List' : 'Mode Flashcard'}
+            {flashcardMode ? 'Daftar Materi' : 'Flashcard Bab Ini'}
           </Button>
 
+          <Link
+            href={`/practice/multiple-choice?type=vocabulary&babStart=${lesson.order}&babEnd=${lesson.order}`}
+            className="flex-1 sm:flex-none"
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full rounded-xl border-zinc-300 dark:border-zinc-700"
+            >
+              <PenTool className="w-4 h-4 mr-1.5" />
+              Latihan Soal
+            </Button>
+          </Link>
+
           <Link href={`/exam/session?preset=bab${lesson.order}`} className="flex-1 sm:flex-none">
-            <Button size="sm" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-xs">
+            <Button size="sm" className="w-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-xl shadow-xs">
               <Award className="w-4 h-4 mr-1.5" />
               Ujian Bab {lesson.order}
             </Button>
@@ -155,13 +171,13 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
 
       {/* FLASHCARD MODE */}
       {flashcardMode && flashcardDeck.length > 0 && (
-        <div className="bg-gradient-to-br from-indigo-50/60 via-purple-50/40 to-blue-50/60 dark:from-slate-900 dark:via-indigo-950/30 dark:to-slate-900 p-6 sm:p-8 rounded-3xl border border-indigo-100 dark:border-slate-800 space-y-6">
+        <div className="bg-zinc-50 dark:bg-zinc-900/60 p-6 sm:p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white">
                 {flashcardDeck[cardIndex].type}
               </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">
                 Kartu {cardIndex + 1} dari {flashcardDeck.length}
               </span>
             </div>
@@ -174,15 +190,15 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
             className="cursor-pointer min-h-[220px] sm:min-h-[260px] perspective-1000 flex items-center justify-center"
           >
             <div
-              className={`w-full max-w-lg p-8 rounded-3xl border bg-white dark:bg-slate-800 shadow-lg text-center transition-all duration-500 transform-style-preserve-3d flex flex-col items-center justify-center space-y-3 ${
+              className={`w-full max-w-lg p-8 rounded-2xl border bg-white dark:bg-zinc-900 shadow-sm text-center transition-all duration-300 flex flex-col items-center justify-center space-y-3 ${
                 isFlipped
-                  ? 'border-indigo-400 dark:border-indigo-500 shadow-indigo-100 dark:shadow-indigo-950/50'
-                  : 'border-gray-200 dark:border-slate-700 hover:scale-[1.02]'
+                  ? 'border-indigo-400 dark:border-indigo-500'
+                  : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300'
               }`}
             >
               {!isFlipped ? (
                 <>
-                  <p className="text-4xl sm:text-5xl font-black font-japanese text-gray-900 dark:text-white">
+                  <p className="text-4xl sm:text-5xl font-black font-japanese text-zinc-900 dark:text-zinc-100">
                     {flashcardDeck[cardIndex].front}
                   </p>
                   {flashcardDeck[cardIndex].subFront && (
@@ -191,27 +207,27 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
                     </p>
                   )}
                   {flashcardDeck[cardIndex].romaji && (
-                    <p className="text-xs text-gray-400 tracking-wider">
+                    <p className="text-xs text-zinc-400 font-mono tracking-wider">
                       {flashcardDeck[cardIndex].romaji}
                     </p>
                   )}
-                  <p className="text-[11px] text-gray-400 pt-2 flex items-center gap-1">
+                  <p className="text-[11px] text-zinc-400 pt-2 flex items-center gap-1">
                     <RotateCcw className="w-3 h-3" /> Klik untuk melihat arti
                   </p>
                 </>
               ) : (
                 <>
                   <p className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                    Arti & Makna:
+                    Arti:
                   </p>
-                  <p className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
+                  <p className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
                     {flashcardDeck[cardIndex].back}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-japanese">
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-japanese">
                     {flashcardDeck[cardIndex].front}
                   </p>
-                  <p className="text-[11px] text-gray-400 pt-2 flex items-center gap-1">
-                    <RotateCcw className="w-3 h-3" /> Klik untuk kembali
+                  <p className="text-[11px] text-zinc-400 pt-2 flex items-center gap-1">
+                    <RotateCcw className="w-3 h-3" /> Klik untuk membalik kembali
                   </p>
                 </>
               )}
@@ -224,7 +240,7 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
               variant="outline"
               size="sm"
               onClick={handlePrevCard}
-              className="rounded-xl px-4 dark:border-slate-700"
+              className="rounded-xl px-4"
             >
               <ChevronLeft className="w-4 h-4 mr-1" />
               Sebelumnya
@@ -233,7 +249,7 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
               variant="default"
               size="sm"
               onClick={handleNextCard}
-              className="bg-indigo-600 hover:bg-indigo-700 rounded-xl px-4"
+              className="rounded-xl px-4"
             >
               Berikutnya
               <ChevronRight className="w-4 h-4 ml-1" />
@@ -245,22 +261,27 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
       {/* FILTER TABS */}
       {!flashcardMode && (
         <>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-gray-200 dark:border-slate-800">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-zinc-200 dark:border-zinc-800">
             {[
+              { id: 'cheatsheet', label: `⚡ Rangkuman Kilat (Cheat Sheet)`, highlight: true },
               { id: 'all', label: `Semua (${totalContent})` },
+              { id: 'grammar', label: `Tata Bahasa (${lesson.grammar.length})` },
+              { id: 'particles', label: `Partikel (${lesson.particles.length})` },
               { id: 'vocabulary', label: `Kosakata (${lesson.vocabulary.length})` },
               { id: 'kanji', label: `Kanji (${lesson.kanji.length})` },
-              { id: 'grammar', label: `Grammar (${lesson.grammar.length})` },
-              { id: 'particles', label: `Partikel (${lesson.particles.length})` },
               { id: 'kana', label: `Huruf Kana (${lesson.hiragana.length + lesson.katakana.length})` },
             ].map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200/80 dark:border-slate-700'
+                    ? tab.highlight
+                      ? 'bg-amber-600 text-white shadow-xs'
+                      : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-xs'
+                    : tab.highlight
+                    ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 hover:bg-amber-100'
+                    : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800'
                 }`}
               >
                 {tab.label}
@@ -268,30 +289,195 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
             ))}
           </div>
 
+          {/* ⚡ CHEAT SHEET / RANGKUMAN KILAT TAB */}
+          {activeTab === 'cheatsheet' && (
+            <div className="space-y-6">
+              {/* Header Box Cheat Sheet */}
+              <div className="p-5 rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/60 dark:bg-amber-950/20 space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2 text-base">
+                    <FileSpreadsheet className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                    Cheat Sheet 2 Menit: Bab {lesson.order}
+                  </h3>
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300">
+                    Hafalan Kilat
+                  </span>
+                </div>
+                <p className="text-xs text-amber-800/80 dark:text-amber-300/80 leading-relaxed">
+                  Rangkuman ringkas ini menyaring poin-poin paling penting di Bab {lesson.order} agar kamu bisa mengulang dalam waktu 2 menit sebelum latihan atau ujian.
+                </p>
+              </div>
+
+              {/* 1. Rangkuman Pola Tata Bahasa Utama */}
+              {lesson.grammar.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                    <GraduationCap className="w-4 h-4 text-emerald-600" />
+                    Pola Inti Tata Bahasa (Grammar Formulas)
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {lesson.grammar.map((g, idx) => (
+                      <div
+                        key={g.id}
+                        className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                            Rumus #{idx + 1}
+                          </span>
+                          {g.example && <AudioButton text={g.example} size="sm" />}
+                        </div>
+                        <p className="font-bold text-sm font-japanese text-indigo-600 dark:text-indigo-400">
+                          {g.pattern}
+                        </p>
+                        <p className="text-xs text-zinc-700 dark:text-zinc-300 font-medium">
+                          {g.meaning}
+                        </p>
+                        {g.example && (
+                          <div className="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-100 dark:border-zinc-800 text-xs space-y-0.5">
+                            <p className="font-japanese font-medium text-zinc-900 dark:text-zinc-100">
+                              {g.example}
+                            </p>
+                            {g.translation && (
+                              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                                {g.translation}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 2. Partikel Kunci */}
+              {lesson.particles.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    Partikel Kunci Bab Ini
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {lesson.particles.map(p => (
+                      <div
+                        key={p.id}
+                        className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-1.5"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-lg font-bold font-japanese px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border border-amber-200/60 dark:border-amber-900/40">
+                            {p.particle}
+                          </span>
+                          {p.example && <AudioButton text={p.example} size="sm" />}
+                        </div>
+                        <p className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">
+                          {p.meaning}
+                        </p>
+                        {p.pattern && (
+                          <p className="text-[11px] font-mono text-zinc-500">
+                            {p.pattern}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 3. Kosakata Paling Sering Muncul */}
+              {lesson.vocabulary.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                      <BookMarked className="w-4 h-4 text-blue-600" />
+                      Kosakata Utama (Daftar Cepat)
+                    </h4>
+                    <span className="text-xs text-zinc-500">
+                      {lesson.vocabulary.slice(0, 12).length} kata kunci
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                    {lesson.vocabulary.slice(0, 12).map(v => (
+                      <div
+                        key={v.id}
+                        className="p-3 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-center justify-between text-xs"
+                      >
+                        <div className="space-y-0.5 pr-2">
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-bold font-japanese text-sm text-zinc-900 dark:text-zinc-100">
+                              {v.kanji || v.kana}
+                            </span>
+                            {v.kanji && (
+                              <span className="text-[10px] text-zinc-400 font-japanese">
+                                ({v.kana})
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-zinc-600 dark:text-zinc-300 font-medium truncate">
+                            {v.meaning}
+                          </p>
+                        </div>
+                        <AudioButton text={v.kana || v.word} size="sm" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Bottom Quick Test CTA */}
+              <div className="p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                    Sudah hafal poin-poin di atas?
+                  </p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    Uji ingatanmu sekarang dengan 10 soal pilihan ganda dari Bab {lesson.order}.
+                  </p>
+                </div>
+                <Link
+                  href={`/practice/multiple-choice?type=vocabulary&babStart=${lesson.order}&babEnd=${lesson.order}`}
+                >
+                  <Button className="rounded-xl px-5 flex items-center gap-1.5">
+                    Mulai Latihan <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
+
           {/* VOCABULARY SECTION */}
           {(activeTab === 'all' || activeTab === 'vocabulary') && lesson.vocabulary.length > 0 && (
-            <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
-              <div className="p-4 bg-gradient-to-r from-indigo-600 to-blue-600 flex items-center justify-between text-white">
-                <h3 className="font-bold flex items-center gap-2 text-sm sm:text-base">
-                  <BookMarked className="w-5 h-5" />
+            <section className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                  <BookMarked className="w-4 h-4 text-indigo-600" />
                   Kosakata ({lesson.vocabulary.length} Kata)
                 </h3>
-                <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Audio Tersedia</span>
               </div>
-              <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {lesson.vocabulary.map(v => (
                   <div
                     key={v.id}
-                    className="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 dark:border-slate-800 bg-gray-50/80 dark:bg-slate-800/60 hover-float transition-all"
+                    className="flex items-center justify-between p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900"
                   >
                     <div className="flex items-center gap-3">
                       <div className="text-center min-w-[55px]">
-                        {v.kanji && <p className="text-lg font-bold font-japanese text-gray-900 dark:text-white leading-tight">{v.kanji}</p>}
-                        <p className="text-xs text-indigo-600 dark:text-indigo-400 font-japanese font-medium">{v.kana}</p>
+                        {v.kanji && (
+                          <p className="text-lg font-bold font-japanese text-zinc-900 dark:text-zinc-100 leading-tight">
+                            {v.kanji}
+                          </p>
+                        )}
+                        <p className="text-xs text-indigo-600 dark:text-indigo-400 font-japanese font-medium">
+                          {v.kana}
+                        </p>
                       </div>
-                      <div className="border-l border-gray-200 dark:border-slate-700 pl-3">
-                        <p className="text-sm font-bold text-gray-800 dark:text-gray-100">{v.meaning}</p>
-                        <p className="text-[11px] text-gray-400">{v.romaji} {v.wordType ? `• ${v.wordType}` : ''}</p>
+                      <div className="border-l border-zinc-200 dark:border-zinc-800 pl-3">
+                        <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                          {v.meaning}
+                        </p>
+                        <p className="text-[11px] text-zinc-400">
+                          {v.romaji} {v.wordType ? `• ${v.wordType}` : ''}
+                        </p>
                       </div>
                     </div>
                     <AudioButton text={v.kana || v.word} size="sm" />
@@ -303,28 +489,41 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
 
           {/* KANJI SECTION */}
           {(activeTab === 'all' || activeTab === 'kanji') && lesson.kanji.length > 0 && (
-            <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
-              <div className="p-4 bg-gradient-to-r from-rose-600 to-pink-600 flex items-center justify-between text-white">
-                <h3 className="font-bold flex items-center gap-2 text-sm sm:text-base">
-                  <FileText className="w-5 h-5" />
+            <section className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-violet-600" />
                   Kanji ({lesson.kanji.length} Karakter)
                 </h3>
-                <span className="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">N5 Curriculum</span>
               </div>
-              <div className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {lesson.kanji.map(k => (
                   <div
                     key={k.id}
-                    className="p-4 rounded-xl border border-gray-100 dark:border-slate-800 bg-gray-50/80 dark:bg-slate-800/60 text-center space-y-1.5 hover-float transition-all"
+                    className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2"
                   >
-                    <p className="text-3xl font-black font-japanese text-gray-900 dark:text-white">{k.character}</p>
-                    <p className="text-xs font-bold text-rose-600 dark:text-rose-400">{k.meaning}</p>
-                    <div className="text-[10px] text-gray-500 dark:text-gray-400 space-y-0.5">
-                      {k.onyomi && <p>On: {k.onyomi}</p>}
-                      {k.kunyomi && <p>Kun: {k.kunyomi}</p>}
+                    <div className="flex items-start justify-between">
+                      <span className="text-3xl font-black font-japanese text-zinc-900 dark:text-zinc-100">
+                        {k.character}
+                      </span>
+                      {k.jlptLevel && (
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 dark:bg-violet-950/40 dark:text-violet-300 border border-violet-200 dark:border-violet-900/40">
+                          {k.jlptLevel}
+                        </span>
+                      )}
                     </div>
-                    <div className="pt-1 flex justify-center">
-                      <AudioButton text={k.hiragana || k.character} size="sm" />
+                    <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                      {k.meaning}
+                    </p>
+                    <div className="text-[11px] text-zinc-500 space-y-0.5 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+                      <p>
+                        <span className="font-medium text-zinc-700 dark:text-zinc-300">Onyomi:</span>{' '}
+                        {k.onyomi || '-'}
+                      </p>
+                      <p>
+                        <span className="font-medium text-zinc-700 dark:text-zinc-300">Kunyomi:</span>{' '}
+                        {k.kunyomi || '-'}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -334,18 +533,18 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
 
           {/* GRAMMAR SECTION */}
           {(activeTab === 'all' || activeTab === 'grammar') && lesson.grammar.length > 0 && (
-            <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
-              <div className="p-4 bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-between text-white">
-                <h3 className="font-bold flex items-center gap-2 text-sm sm:text-base">
-                  <PenTool className="w-5 h-5" />
-                  Tata Bahasa / Pola Kalimat ({lesson.grammar.length} Pola)
+            <section className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                  <GraduationCap className="w-4 h-4 text-emerald-600" />
+                  Tata Bahasa ({lesson.grammar.length} Pola Kalimat)
                 </h3>
               </div>
-              <div className="p-4 space-y-3">
+              <div className="space-y-3">
                 {lesson.grammar.map(g => (
                   <div
                     key={g.id}
-                    className="p-4 rounded-xl border border-gray-100 dark:border-slate-800 bg-gray-50/80 dark:bg-slate-800/60 space-y-2 hover-float transition-all"
+                    className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-base font-japanese text-emerald-700 dark:text-emerald-400">
@@ -353,12 +552,26 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
                       </span>
                       {g.example && <AudioButton text={g.example} size="sm" />}
                     </div>
-                    {g.meaning && <p className="text-xs font-semibold text-gray-700 dark:text-gray-200">{g.meaning}</p>}
-                    {g.usage && <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{g.usage}</p>}
+                    {g.meaning && (
+                      <p className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">
+                        {g.meaning}
+                      </p>
+                    )}
+                    {g.usage && (
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                        {g.usage}
+                      </p>
+                    )}
                     {g.example && (
-                      <div className="bg-white dark:bg-slate-900 p-3 rounded-lg border border-gray-100 dark:border-slate-800 mt-2">
-                        <p className="text-xs font-japanese font-bold text-gray-800 dark:text-gray-200">{g.example}</p>
-                        {g.translation && <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">{g.translation}</p>}
+                      <div className="bg-zinc-50 dark:bg-zinc-800/60 p-3 rounded-lg border border-zinc-100 dark:border-zinc-800 mt-2">
+                        <p className="text-xs font-japanese font-bold text-zinc-800 dark:text-zinc-200">
+                          {g.example}
+                        </p>
+                        {g.translation && (
+                          <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
+                            {g.translation}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>
@@ -369,31 +582,43 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
 
           {/* PARTICLES SECTION */}
           {(activeTab === 'all' || activeTab === 'particles') && lesson.particles.length > 0 && (
-            <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
-              <div className="p-4 bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-between text-white">
-                <h3 className="font-bold flex items-center gap-2 text-sm sm:text-base">
-                  <Sparkles className="w-5 h-5" />
+            <section className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-500" />
                   Partikel ({lesson.particles.length} Pola Partikel)
                 </h3>
               </div>
-              <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {lesson.particles.map(p => (
                   <div
                     key={p.id}
-                    className="p-4 rounded-xl border border-gray-100 dark:border-slate-800 bg-gray-50/80 dark:bg-slate-800/60 space-y-2 hover-float transition-all"
+                    className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-black font-japanese text-amber-600 dark:text-amber-400 bg-amber-100/70 dark:bg-amber-950/70 px-3 py-1 rounded-lg">
+                      <span className="text-lg font-bold font-japanese text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-3 py-1 rounded-lg border border-amber-200/60 dark:border-amber-900/40">
                         {p.particle}
                       </span>
                       {p.example && <AudioButton text={p.example} size="sm" />}
                     </div>
-                    <p className="text-xs font-bold text-gray-800 dark:text-gray-100">{p.meaning}</p>
-                    {p.pattern && <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">Pola: {p.pattern}</p>}
+                    <p className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">
+                      {p.meaning}
+                    </p>
+                    {p.pattern && (
+                      <p className="text-xs text-zinc-500 font-mono">
+                        Pola: {p.pattern}
+                      </p>
+                    )}
                     {p.example && (
-                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-lg border border-gray-100 dark:border-slate-800">
-                        <p className="text-xs font-japanese font-medium text-gray-800 dark:text-gray-200">{p.example}</p>
-                        {p.translation && <p className="text-[11px] text-gray-500 dark:text-gray-400">{p.translation}</p>}
+                      <div className="bg-zinc-50 dark:bg-zinc-800/60 p-2.5 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                        <p className="text-xs font-japanese font-medium text-zinc-800 dark:text-zinc-200">
+                          {p.example}
+                        </p>
+                        {p.translation && (
+                          <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                            {p.translation}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>
@@ -403,25 +628,32 @@ export function InteractiveLessonView({ lesson }: { lesson: LessonData }) {
           )}
 
           {/* KANA SECTION */}
-          {(activeTab === 'all' || activeTab === 'kana') && (lesson.hiragana.length > 0 || lesson.katakana.length > 0) && (
-            <section className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-gray-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
-              <div className="p-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold flex items-center gap-2">
-                <Languages className="w-5 h-5" />
-                Karakter Kana Dasar
-              </div>
-              <div className="p-4 flex flex-wrap gap-2.5">
-                {[...lesson.hiragana, ...lesson.katakana].map(k => (
-                  <div
-                    key={k.id}
-                    className="w-14 h-14 bg-purple-50/80 dark:bg-slate-800 border border-purple-200/80 dark:border-slate-700 rounded-xl flex flex-col items-center justify-center hover-float transition-all"
-                  >
-                    <span className="text-xl font-bold font-japanese text-gray-900 dark:text-white">{k.character}</span>
-                    <span className="text-[10px] text-gray-500 dark:text-gray-400">{k.romaji}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
+          {(activeTab === 'all' || activeTab === 'kana') &&
+            (lesson.hiragana.length > 0 || lesson.katakana.length > 0) && (
+              <section className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                    <Languages className="w-4 h-4 text-purple-600" />
+                    Karakter Kana Dasar
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {[...lesson.hiragana, ...lesson.katakana].map(k => (
+                    <div
+                      key={k.id}
+                      className="w-14 h-14 bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-800 rounded-xl flex flex-col items-center justify-center"
+                    >
+                      <span className="text-xl font-bold font-japanese text-zinc-900 dark:text-zinc-100">
+                        {k.character}
+                      </span>
+                      <span className="text-[10px] text-zinc-500 dark:text-zinc-400">
+                        {k.romaji}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
         </>
       )}
     </div>
